@@ -1,378 +1,1437 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#17243c">
-<title>AD NovaTech 3D Studio | Impresión 3D</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#182640">
+  <meta name="description" content="AD NovaTech 3D Studio: impresión 3D, regalos originales y creaciones personalizadas.">
+  <title>AD NovaTech 3D Studio | Creaciones únicas</title>
 
-<style>
-:root{--navy:#17243c;--navy2:#263a59;--gold:#c49a52;--gold-light:#f0d8a4;--cream:#fbf8f2;--text:#343947;--muted:#737987;--line:#e8dfd1}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text);background:var(--cream);line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-.container{width:min(1160px,91%);margin:auto}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-/* Fondo original con destellos */
-.sparkle-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 15% 15%,#f5e6c855,transparent 38%),radial-gradient(ellipse at 90% 45%,#e8d5c955,transparent 35%),var(--cream)}
-.sparkle-bg span{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 10px 3px #d6ad5a55;animation:twinkle 4s ease-in-out infinite}
-.sparkle-bg span:nth-child(1){left:8%;top:22%}
-.sparkle-bg span:nth-child(2){left:22%;top:68%;animation-delay:1s}
-.sparkle-bg span:nth-child(3){left:39%;top:17%;animation-delay:2s}
-.sparkle-bg span:nth-child(4){left:56%;top:78%;animation-delay:.5s}
-.sparkle-bg span:nth-child(5){left:72%;top:24%;animation-delay:1.8s}
-.sparkle-bg span:nth-child(6){left:88%;top:62%;animation-delay:.7s}
-.sparkle-bg span:nth-child(7){left:95%;top:12%;animation-delay:2.5s}
-.sparkle-bg span:nth-child(8){left:13%;top:88%;animation-delay:1.1s}
-@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.65)}50%{opacity:1;transform:scale(1.5)}}
-
-/* Títulos animados originales */
-h1,h2,h3,.brand-title{font-family:"Playfair Display",serif;transform-origin:center;animation:tituloDorado 3.8s ease-in-out infinite}
-h1{animation-name:tituloPrincipal}
-h3{animation-duration:4.8s}
-@keyframes tituloDorado{
-  0%,100%{transform:translateY(0);text-shadow:0 0 2px #c49a5220}
-  50%{transform:translateY(-4px);text-shadow:0 0 10px #c49a5260,0 0 18px #f0d8a455}
-}
-@keyframes tituloPrincipal{
-  0%,100%{transform:translateY(0) scale(1);text-shadow:0 0 2px #c49a5220}
-  50%{transform:translateY(-7px) scale(1.018);text-shadow:0 0 12px #c49a5280,0 0 22px #f0d8a477}
-}
-@media(prefers-reduced-motion:reduce){h1,h2,h3,.brand-title{animation:none}}
-
-/* Navegación por pantallas */
-main>section{display:none}
-main>section.active-section{display:block}
-
-.topbar{background:var(--navy);color:white;text-align:center;padding:8px 12px;font-size:.8rem;letter-spacing:.06em}
-header{position:sticky;top:0;z-index:20;background:#fbf8f2ed;backdrop-filter:blur(14px);border-bottom:1px solid #d9c59d80}
-.nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.brand img{width:58px;height:58px;object-fit:contain;border-radius:50%;transition:transform .4s}
-.brand:hover img{transform:rotate(-5deg) scale(1.06)}
-.brand-title{display:block;color:var(--navy);font-size:1.08rem;font-weight:700;line-height:1.2}
-.brand-sub{display:block;color:#a77a32;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin-top:5px}
-nav{display:flex;align-items:center;gap:18px;font-size:.9rem;font-weight:600}
-nav a:hover{color:#a77a32}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:8px;padding:12px 19px;font-weight:700;transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #17243c1c}
-.btn-dark{background:var(--navy);color:white}
-.btn-gold{background:linear-gradient(110deg,#b8893e,#f0d8a4,#b8893e);color:#231b0e}
-.btn-light{background:white;border:1px solid var(--line);color:var(--navy)}
-.btn-small{padding:9px 12px;font-size:.84rem}
-
-.hero{padding:76px 0 60px;background:linear-gradient(125deg,#fbf8f2f2,#f7eee7dc)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
-.eyebrow{display:inline-block;color:#9b702b;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:700;margin-bottom:15px}
-h1,h2,h3{color:var(--navy);line-height:1.18}
-h1{font-size:clamp(2.7rem,5vw,4.5rem);letter-spacing:-.035em;margin:0 0 20px}
-h1 span{color:#a77a32}
-.hero p{max-width:550px;color:#606779;font-size:1.08rem;margin:0 0 27px}
-.actions,.features{display:flex;flex-wrap:wrap;gap:12px}
-.features{gap:17px;color:#646b79;font-size:.83rem;margin-top:28px}
-.features span:before{content:"✦";color:var(--gold);margin-right:6px}
-.hero-logo{display:flex;justify-content:center;animation:float 5.5s ease-in-out infinite}
-.logo-frame{position:relative;width:min(100%,410px);aspect-ratio:1;padding:15px;border:1px solid var(--gold);border-radius:22px;background:#ffffffc9;box-shadow:0 22px 60px #17243c17,0 0 30px #c49a5220;overflow:hidden}
-.logo-frame:before{content:"";position:absolute;inset:7px;border:1px solid #c49a5270;border-radius:15px;pointer-events:none;z-index:2}
-.logo-frame:after{content:"";position:absolute;inset:-30% auto -30% -70%;width:45%;background:linear-gradient(110deg,transparent,#ffffffc9,transparent);transform:skewX(-20deg);animation:shine 5.2s ease-in-out infinite;pointer-events:none;z-index:3}
-.logo-frame img{width:100%;height:100%;object-fit:contain;border-radius:12px}
-@keyframes shine{0%,25%{left:-70%}68%,100%{left:135%}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-section{padding:65px 0}
-.section-head{text-align:center;max-width:690px;margin:0 auto 38px}
-.section-head h2{font-size:clamp(2rem,4vw,3rem);margin:0 0 12px}
-.section-head p{margin:0;color:var(--muted)}
-.catalog{background:#ffffffd9}
-.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
-.product{background:white;border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .25s,box-shadow .25s}
-.product:hover{transform:translateY(-5px);box-shadow:0 18px 42px #17243c12}
-.product-img{height:230px;background:#f2e9de;overflow:hidden}
-.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
-.product:hover .product-img img{transform:scale(1.045)}
-.product-body{padding:20px}
-.category{font-size:.72rem;color:#9b702b;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
-.product h3{font-size:1.3rem;margin:8px 0}
-.product p{color:var(--muted);font-size:.9rem;min-height:48px;margin:0 0 17px}
-.product-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
-.product-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
-.price{font-size:1.12rem;font-weight:700;color:var(--navy);white-space:nowrap}
-.qty-picker{display:inline-flex;align-items:center;gap:9px;padding:4px;border:1px solid var(--line);border-radius:8px;background:white}
-.qty-picker button{width:30px;height:30px;border:0;border-radius:6px;background:#f7efe4;color:var(--navy);font-size:1.1rem;font-weight:700}
-.qty-picker output{min-width:20px;text-align:center;font-weight:700;color:var(--navy)}
-.personalize{background:linear-gradient(120deg,#f3e7e3,#f7efe4)}
-.personalize-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:46px;align-items:center}
-.personalize h2{font-size:clamp(2rem,4vw,3rem);margin:0 0 16px}
-.personalize p{color:#626878}
-.checks{padding:0;list-style:none;margin:22px 0}
-.checks li{margin:12px 0}
-.checks li:before{content:"✓";color:#9b702b;font-weight:700;margin-right:10px}
-.form{background:white;padding:27px;border:1px solid #e8d9d2;border-radius:14px;box-shadow:0 16px 40px #17243c0b}
-.form h3{font-size:1.55rem;margin:0 0 20px}
-.field{margin-bottom:16px}
-.field label{display:block;font-weight:700;font-size:.88rem;margin-bottom:6px}
-.field input,.field select,.field textarea{width:100%;padding:12px;border:1px solid #dedfe5;border-radius:7px;background:white;color:var(--text)}
-.field textarea{min-height:100px;resize:vertical}
-.note{color:var(--muted);font-size:.8rem;margin-top:12px}
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
-.home-buy{padding:42px 0 12px;margin-top:10px;border-top:1px solid var(--line)}
-.home-buy .section-head{margin-bottom:25px}
-.home-message{text-align:center;max-width:760px;margin:35px auto 0;padding:24px 18px;border-top:1px solid var(--line);color:var(--navy);font-family:"Playfair Display",serif;font-size:1.15rem;font-weight:600}
-.home-message span{display:block;color:#9b702b;font-family:"DM Sans",sans-serif;font-size:.82rem;font-weight:600;margin-top:9px;letter-spacing:.04em}
-.step{background:white;border:1px solid var(--line);border-radius:12px;padding:25px}
-.step-no{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:white;font-weight:700;margin-bottom:15px}
-.step h3{font-size:1.23rem;margin:0 0 9px}
-.step p{color:var(--muted);font-size:.92rem;margin:0}
-.cart-section{background:white}
-.cart-box{max-width:850px;margin:auto;padding:27px;border:1px solid var(--line);border-radius:14px;background:var(--cream)}
-.cart-list{display:grid;gap:12px}
-.cart-item{display:flex;align-items:center;justify-content:space-between;gap:15px;background:white;padding:14px;border:1px solid var(--line);border-radius:9px}
-.item-name{font-weight:700;color:var(--navy)}
-.item-detail{font-size:.84rem;color:var(--muted)}
-.item-controls{display:flex;align-items:center;gap:9px}
-.qty-btn{width:30px;height:30px;border:1px solid var(--line);border-radius:6px;background:white;color:var(--navy);font-weight:700}
-.cart-total{display:flex;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:18px;margin-top:20px;font-weight:700;font-size:1.15rem}
-.cart-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-.empty{text-align:center;color:var(--muted);padding:20px 0}
-.payment-note{background:#fff7e8;border:1px solid #ead7af;color:#66502a;border-radius:8px;padding:13px;font-size:.86rem;margin-top:17px}
-.status{margin-top:13px;font-size:.9rem;font-weight:600}
-.contact{background:var(--navy);color:white;text-align:center}
-.contact h2{color:white;margin:0 0 14px}
-.contact p{max-width:650px;margin:0 auto 24px;color:#d7dce6}
-footer{background:#111a2b;color:#e5e8ef;padding:23px 0;font-size:.82rem}
-.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:850px){.hero-grid,.personalize-grid{grid-template-columns:1fr;gap:32px}.hero{padding:50px 0}.hero-logo{order:-1}.logo-frame{width:min(80%,330px)}.products{grid-template-columns:repeat(2,minmax(0,1fr))}nav{gap:12px;font-size:.82rem}}
-@media(max-width:560px){.nav{padding:12px 0;align-items:flex-start;flex-direction:column;gap:10px}nav{flex-wrap:wrap}.products,.steps{grid-template-columns:1fr}.product-img{height:250px}.product-foot{align-items:flex-start;flex-direction:column}.cart-box{padding:15px}.cart-item{align-items:flex-start;flex-direction:column}.brand img{width:48px;height:48px}}
-</style>
-</head>
-<body>
-
-<div class="sparkle-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div class="topbar">✨ Creaciones únicas · Detalles personalizados · Impresión 3D ✨</div>
-
-<header>
-<div class="container nav">
-<a class="brand" href="#inicio">
-<img src="logo.jpeg.jpg" alt="Logo AD NovaTech 3D Studio">
-<span><span class="brand-title">AD NovaTech 3D Studio</span><span class="brand-sub">Impresión 3D</span></span>
-</a>
-<nav aria-label="Navegación principal">
-<a href="#inicio">Inicio</a>
-<a href="#productos">Productos</a>
-<a href="#personalizacion">Personaliza</a>
-<a href="#carrito">Carrito (<span id="contador">0</span>)</a>
-</nav>
-</div>
-</header>
-
-<main>
-<section class="hero active-section" id="inicio">
-<div class="container hero-grid">
-<div>
-<span class="eyebrow">DISEÑOS CON PERSONALIDAD</span>
-<h1>Pequeñas ideas,<br><span>grandes creaciones.</span></h1>
-<p>Descubre productos impresos en 3D, regalos especiales y diseños personalizados creados con cariño.</p>
-<div class="actions"><a class="btn btn-dark" href="#productos">Explorar productos</a><a class="btn btn-light" href="#personalizacion">Crear mi idea</a></div>
-<div class="features"><span>Diseños personalizados</span><span>Detalles originales</span><span>Hecho a pedido</span></div>
-</div>
-<div class="hero-logo"><div class="logo-frame"><img src="logo.jpeg.jpg" alt="AD NovaTech 3D Studio"></div></div>
-</div>
-
-<!-- CÓMO COMPRAR, DENTRO DE INICIO -->
-<div class="container home-buy" id="como-comprar">
-<div class="section-head">
-<span class="eyebrow">FÁCIL Y CLARO</span>
-<h2>¿Cómo comprar?</h2>
-<p>Te acompañamos desde la elección de tu producto hasta la coordinación de tu pedido.</p>
-</div>
-<div class="steps">
-<article class="step"><div class="step-no">1</div><h3>Elige tu producto</h3><p>Explora nuestras creaciones y agrega al carrito los productos que te interesen.</p></article>
-<article class="step"><div class="step-no">2</div><h3>Revisa tu selección</h3><p>Comprueba las cantidades y el subtotal estimado antes de enviar tu consulta.</p></article>
-<article class="step"><div class="step-no">3</div><h3>Escríbenos por WhatsApp</h3><p>Envía tu pedido y coordinaremos disponibilidad, personalización, despacho y pago.</p></article>
-</div>
-<div class="home-message">
-Cada idea tiene algo especial. Gracias por apoyar un emprendimiento creado con cariño, creatividad y muchas ganas de convertir tus ideas en piezas únicas.
-<span>AD NovaTech 3D Studio · Creamos contigo, pieza por pieza.</span>
-</div>
-</div>
-</section><!-- CATÁLOGO DE PRODUCTOS -->
-<section id="productos">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">NUESTRAS CREACIONES</span>
-      <h2>Productos impresos en 3D</h2>
-      <p>Pequeños detalles, grandes ideas y creaciones hechas con cariño.</p>
-    </div>
-
-    <div class="product-grid">
-      <article class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"
-               alt="Figura decorativa">
-        </div>
-        <div class="product-info">
-          <span class="product-category">Decoración</span>
-          <h3>Figuras decorativas</h3>
-          <p>Figuras para dar un toque especial a tus espacios.</p>
-          <div class="product-bottom">
-            <strong>$4.990</strong>
-            <button class="btn-add" onclick="agregarAlCarrito('Figura decorativa',4990)">
-              Agregar +
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85"
-               alt="Accesorios personalizados">
-        </div>
-        <div class="product-info">
-          <span class="product-category">Accesorios</span>
-          <h3>Llaveros personalizados</h3>
-          <p>Un detalle único para llevar tus ideas contigo.</p>
-          <div class="product-bottom">
-            <strong>$1.990</strong>
-            <button class="btn-add" onclick="agregarAlCarrito('Llavero personalizado',1990)">
-              Agregar +
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=85"
-               alt="Adorno decorativo">
-        </div>
-        <div class="product-info">
-          <span class="product-category">Hogar</span>
-          <h3>Adornos decorativos</h3>
-          <p>Detalles creativos para decorar tu hogar.</p>
-          <div class="product-bottom">
-            <strong>$3.990</strong>
-            <button class="btn-add" onclick="agregarAlCarrito('Adorno decorativo',3990)">
-              Agregar +
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=85"
-               alt="Nombre personalizado">
-        </div>
-        <div class="product-info">
-          <span class="product-category">Personalizados</span>
-          <h3>Nombres en 3D</h3>
-          <p>Nombres y diseños especiales para regalar.</p>
-          <div class="product-bottom">
-            <strong>$3.490</strong>
-            <button class="btn-add" onclick="agregarAlCarrito('Nombre en 3D',3490)">
-              Agregar +
-            </button>
-          </div>
-        </div>
-      </article>
-
-      <article class="product-card">
-        <div class="product-image">
-          <img src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=700&q=85"
-               alt="Regalo especial">
-        </div>
-        <div class="product-info">
-          <span class="product-category">Regalos</span>
-          <h3>Detalles para regalar</h3>
-          <p>Ideas originales para sorprender a alguien especial.</p>
-          <div<script>
-  // WHATSAPP OFICIAL DE AD NOVATECH 3D STUDIO
-  const NUMERO_WHATSAPP = "56977286221";
-
-  // CARRITO DE COMPRAS
-  let carrito = [];
-
-  // FORMATO DE PRECIOS EN PESOS CHILENOS
-  function formatoPrecio(precio) {
-    return "$" + Number(precio).toLocaleString("es-CL");
-  }
-
-  // ABRIR WHATSAPP CON UN MENSAJE PREPARADO
-  function abrirWhatsApp(mensaje) {
-    const enlace =
-      "https://wa.me/" +
-      NUMERO_WHATSAPP +
-      "?text=" +
-      encodeURIComponent(mensaje);
-
-    window.open(enlace, "_blank", "noopener,noreferrer");
-  }
-
-  // AGREGAR PRODUCTO AL CARRITO
-  function agregarAlCarrito(nombre, precio) {
-    const productoExistente = carrito.find(
-      producto => producto.nombre === nombre
-    );
-
-    if (productoExistente) {
-      productoExistente.cantidad++;
-    } else {
-      carrito.push({
-        nombre: nombre,
-        precio: precio,
-        cantidad: 1
-      });
+  <style>
+    :root {
+      --cream: #fbf7f0;
+      --white: #ffffff;
+      --navy: #182640;
+      --gold: #b4863c;
+      --gold-light: #e5c58b;
+      --text: #303747;
+      --muted: #72788a;
+      --border: #e9dfd0;
+      --shadow: 0 14px 40px rgba(24, 38, 64, 0.08);
     }
 
-    actualizarCarrito();
-  }
+    * {
+      box-sizing: border-box;
+    }
 
-  // CAMBIAR CANTIDAD
-  function cambiarCantidad(nombre, cambio) {
-    const producto = carrito.find(
-      item => item.nombre === nombre
-    );
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 110px;
+    }
 
-    if (!producto) return;
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.6;
+    }
 
-    producto.cantidad += cambio;
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-    if (producto.cantidad <= 0) {
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button,
+    .btn {
+      cursor: pointer;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin-inline: auto;
+    }
+
+    .announcement {
+      padding: 9px 15px;
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(251, 247, 240, 0.97);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner {
+      min-height: 98px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand-name {
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .brand-subtitle {
+      margin-top: 4px;
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .main-nav a {
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .main-nav a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      padding: 76px 0 68px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: var(--navy);
+    }
+
+    .hero h1 {
+      margin: 0 0 24px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(43px, 5.7vw, 78px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 21px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-weight: 700;
+      text-align: center;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #263b5e;
+    }
+
+    .btn-secondary {
+      border-color: var(--border);
+      background: white;
+      color: var(--navy);
+    }
+
+    .hero-visual {
+      padding: 12px;
+      border: 1px solid var(--gold-light);
+      border-radius: 26px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-visual img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      margin-top: 27px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .hero-points span::before {
+      content: "✦ ";
+      color: var(--gold);
+    }
+
+    .section {
+      padding: 76px 0;
+      scroll-margin-top: 115px;
+    }
+
+    .section-white {
+      background: var(--white);
+    }
+
+    .section-head {
+      max-width: 700px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .section-head .eyebrow {
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 12px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 4vw, 43px);
+      line-height: 1.2;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .buy-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .step-card {
+      padding: 27px 24px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+    }
+
+    .step-number {
+      display: grid;
+      width: 43px;
+      height: 43px;
+      margin-bottom: 18px;
+      place-items: center;
+      border-radius: 50%;
+      background: #f5ead6;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .step-card h3 {
+      margin: 0 0 8px;
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .closing-message {
+      max-width: 780px;
+      margin: 38px auto 0;
+      padding: 30px;
+      border-top: 1px solid var(--gold-light);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .closing-message strong {
+      display: block;
+      margin-top: 12px;
+      color: var(--gold);
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 25px;
+    }
+
+    .product-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+      box-shadow: 0 6px 20px rgba(24, 38, 64, 0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-image {
+      overflow: hidden;
+      background: #f0e8de;
+    }
+
+    .product-image img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-category {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .product-info h3 {
+      margin: 7px 0;
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+    }
+
+    .product-info p {
+      min-height: 46px;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .product-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .product-price {
+      color: var(--navy);
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .btn-add {
+      padding: 9px 13px;
+      border: 0;
+      border-radius: 8px;
+      background: var(--navy);
+      color: white;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .btn-add:hover {
+      background: var(--gold);
+    }
+
+    .form-layout,
+    .cart-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+      gap: 35px;
+    }
+
+    .form-intro {
+      padding: 28px;
+      border-radius: 18px;
+      background: var(--navy);
+      color: white;
+    }
+
+    .form-intro h3 {
+      margin-top: 0;
+      color: white;
+      font-family: "Playfair Display", serif;
+      font-size: 29px;
+    }
+
+    .form-intro p {
+      color: #e0e5ee;
+    }
+
+    .custom-form,
+    .cart-summary {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-height: 46px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #fffdf9;
+      color: var(--text);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .custom-form .btn,
+    .cart-summary .btn {
+      width: 100%;
+    }
+
+    .form-status {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cart-items {
+      display: grid;
+      gap: 13px;
+    }
+
+    .empty-cart {
+      padding: 32px 20px;
+      border: 1px dashed var(--gold-light);
+      border-radius: 14px;
+      background: white;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: white;
+    }
+
+    .cart-item h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+    }
+
+    .cart-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cart-controls {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quantity-btn {
+      width: 31px;
+      height: 31px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--cream);
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .quantity {
+      min-width: 20px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    .remove-item {
+      border: 0;
+      background: transparent;
+      color: #a64e4e;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .cart-summary h3 {
+      margin-top: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-note {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cart-summary .btn + .btn {
+      margin-top: 10px;
+    }
+
+    .contact-card {
+      max-width: 720px;
+      margin: auto;
+      padding: 42px 28px;
+      border: 1px solid var(--gold-light);
+      border-radius: 20px;
+      background: white;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3 {
+      margin: 0 0 12px;
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+    }
+
+    .contact-card p {
+      max-width: 520px;
+      margin: 0 auto 24px;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      padding: 36px 0;
+      background: var(--navy);
+      color: white;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .footer-brand img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: white;
+    }
+
+    .site-footer p {
+      margin: 12px 0;
+      color: #e0e5ee;
+      font-size: 13px;
+    }
+
+    .copyright {
+      opacity: 0.8;
+    }
+
+    @media (max-width: 850px) {
+      .header-inner {
+        padding: 15px 0;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .main-nav {
+        justify-content: center;
+        gap: 13px 19px;
+      }
+
+      .hero {
+        padding-top: 45px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .hero-visual {
+        max-width: 520px;
+        margin-inline: auto;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .form-layout,
+      .cart-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .brand img {
+        width: 55px;
+        height: 55px;
+      }
+
+      .brand-name {
+        font-size: 18px;
+      }
+
+      .brand-subtitle {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      .main-nav {
+        gap: 10px 15px;
+      }
+
+      .main-nav a {
+        font-size: 13px;
+      }
+
+      .hero h1 {
+        font-size: 44px;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .section {
+        padding: 55px 0;
+      }
+
+      .buy-steps,
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-info p {
+        min-height: auto;
+      }
+
+      .cart-item {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .custom-form,
+      .cart-summary {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    ✨ Creaciones únicas · Detalles personalizados · Impresión 3D ✨
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#inicio" aria-label="AD NovaTech 3D Studio, inicio">
+        <img src="logo.jpeg.jpg" alt="Logo de AD NovaTech 3D Studio">
+        <div>
+          <div class="brand-name">AD NovaTech 3D Studio</div>
+          <div class="brand-subtitle">IMPRESIÓN 3D</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#personalizacion">Personaliza</a>
+        <a href="#carrito">Carrito (<span id="contador-carrito">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Diseños con personalidad</span>
+
+          <h1>
+            Pequeñas ideas,<br>
+            <span>grandes creaciones.</span>
+          </h1>
+
+          <p class="hero-description">
+            Descubre productos impresos en 3D, regalos especiales y diseños
+            personalizados creados con cariño.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#productos">Explorar productos</a>
+            <a class="btn btn-secondary" href="#personalizacion">Crear mi idea</a>
+          </div>
+
+          <div class="hero-points">
+            <span>Diseños personalizados</span>
+            <span>Detalles originales</span>
+            <span>Hecho a pedido</span>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            src="logo.jpeg.jpg"
+            alt="AD NovaTech 3D Studio, impresión y personalización 3D"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- CÓMO COMPRAR, INTEGRADO EN INICIO -->
+    <section class="section section-white" id="como-comprar">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Fácil y claro</span>
+          <h2>¿Cómo comprar?</h2>
+          <p>Te acompañamos desde la elección de tu producto hasta la coordinación de tu pedido.</p>
+        </div>
+
+        <div class="buy-steps">
+          <article class="step-card">
+            <div class="step-number">1</div>
+            <h3>Elige tu producto</h3>
+            <p>Explora nuestras creaciones y agrega al carrito los productos que te interesen.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">2</div>
+            <h3>Revisa tu selección</h3>
+            <p>Comprueba las cantidades y el subtotal estimado antes de enviar tu consulta.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-number">3</div>
+            <h3>Conversemos por WhatsApp</h3>
+            <p>Consulta disponibilidad, personalización, despacho y formas de pago.</p>
+          </article>
+        </div>
+
+        <div class="closing-message">
+          Cada idea tiene algo especial. Gracias por apoyar un emprendimiento
+          creado con cariño, creatividad y muchas ganas de convertir tus ideas
+          en piezas únicas.
+          <strong>AD NovaTech 3D Studio · Creamos contigo, pieza por pieza. ✨</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTE 2 CONTINÚA AQUÍ -->
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section class="section" id="productos">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Nuestras creaciones</span>
+          <h2>Productos impresos en 3D</h2>
+          <p>Pequeños detalles, grandes ideas y creaciones hechas con cariño.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=700&q=85"
+                alt="Figura decorativa"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-info">
+              <span class="product-category">Decoración</span>
+              <h3>Figuras decorativas</h3>
+              <p>Figuras para dar un toque especial a tus espacios.</p>
+              <div class="product-bottom">
+                <span class="product-price">$4.990</span>
+                <button class="btn-add" type="button"
+                  onclick="agregarAlCarrito('Figura decorativa', 4990)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=700&q=85"
+                alt="Accesorios y llaveros"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-info">
+              <span class="product-category">Accesorios</span>
+              <h3>Llaveros personalizados</h3>
+              <p>Un detalle único para llevar tus ideas contigo.</p>
+              <div class="product-bottom">
+                <span class="product-price">$1.990</span>
+                <button class="btn-add" type="button"
+                  onclick="agregarAlCarrito('Llavero personalizado', 1990)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=700&q=85"
+                alt="Adorno decorativo"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-info">
+              <span class="product-category">Hogar</span>
+              <h3>Adornos decorativos</h3>
+              <p>Detalles creativos para decorar tu hogar.</p>
+              <div class="product-bottom">
+                <span class="product-price">$3.990</span>
+                <button class="btn-add" type="button"
+                  onclick="agregarAlCarrito('Adorno decorativo', 3990)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=700&q=85"
+                alt="Diseño personalizado"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-info">
+              <span class="product-category">Personalizados</span>
+              <h3>Nombres en 3D</h3>
+              <p>Nombres y diseños especiales para regalar.</p>
+              <div class="product-bottom">
+                <span class="product-price">$3.490</span>
+                <button class="btn-add" type="button"
+                  onclick="agregarAlCarrito('Nombre en 3D', 3490)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1513883049090-d0b7439799bf?auto=format&fit=crop&w=700&q=85"
+                alt="Regalo especial"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-info">
+              <span class="product-category">Regalos</span>
+              <h3>Detalles para regalar</h3>
+              <p>Ideas originales para sorprender a alguien especial.</p>
+              <div class="product-bottom">
+                <span class="product-price">$2.990</span>
+                <button class="btn-add" type="button"
+                  onclick="agregarAlCarrito('Detalle para regalar', 2990)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img
+                src="https://images.unsplash.com/photo-1631553127988-6d5f5b8b7a3c?auto=format&fit=crop&w=700&q=85"
+                alt="Idea creativa para impresión 3D"
+                loading="lazy"
+              >
+            </div>
+            <div class="product-info">
+              <span class="product-category">Tu imaginación</span>
+              <h3>Tu idea en 3D</h3>
+              <p>Cuéntanos qué imaginas y conversemos sobre tu proyecto.</p>
+              <div class="product-bottom">
+                <span class="product-price">A cotizar</span>
+                <a class="btn-add" href="#personalizacion">Consultar</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERSONALIZACIÓN -->
+    <section class="section section-white" id="personalizacion">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Diseñado para ti</span>
+          <h2>Personaliza tu idea</h2>
+          <p>Cuéntanos qué te gustaría crear y conversemos sobre tu proyecto.</p>
+        </div>
+
+        <div class="form-layout">
+          <div class="form-intro">
+            <h3>Tu idea merece tomar forma.</h3>
+            <p>
+              Podemos conversar sobre figuras, nombres, accesorios, adornos
+              y otras ideas que puedan realizarse mediante impresión 3D.
+            </p>
+            <p>
+              Completa el formulario y prepararemos tu consulta para
+              enviarla directamente por WhatsApp.
+            </p>
+          </div>
+
+          <form class="custom-form" id="form-cotizacion">
+            <div class="form-group">
+              <label for="cliente">Tu nombre</label>
+              <input
+                id="cliente"
+                name="cliente"
+                type="text"
+                placeholder="¿Cómo te llamas?"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="tipo">¿Qué te gustaría crear?</label>
+              <select id="tipo" name="tipo" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Figura decorativa">Figura decorativa</option>
+                <option value="Llavero personalizado">Llavero personalizado</option>
+                <option value="Nombre en 3D">Nombre en 3D</option>
+                <option value="Adorno para el hogar">Adorno para el hogar</option>
+                <option value="Regalo personalizado">Regalo personalizado</option>
+                <option value="Otro proyecto">Otro proyecto</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="detalles">Cuéntanos tu idea</label>
+              <textarea
+                id="detalles"
+                name="detalles"
+                placeholder="Tamaño, colores, diseño y otros detalles..."
+                required
+              ></textarea>
+            </div>
+
+            <button class="btn btn-primary" type="submit">
+              Consultar por WhatsApp
+            </button>
+
+            <p class="form-status" id="estado-form" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARRITO -->
+    <section class="section" id="carrito">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Tu selección</span>
+          <h2>Mi carrito</h2>
+          <p>Revisa los productos que elegiste antes de consultar tu pedido.</p>
+        </div>
+
+        <div class="cart-layout">
+          <div class="cart-items" id="lista-carrito">
+            <p class="empty-cart">
+              Tu carrito está esperando tus ideas favoritas.
+            </p>
+          </div>
+
+          <aside class="cart-summary">
+            <h3>Resumen del pedido</h3>
+
+            <div class="cart-total">
+              <span>Subtotal estimado</span>
+              <strong id="total">$0</strong>
+            </div>
+
+            <p class="cart-note">
+              La disponibilidad, el precio final, la personalización,
+              el despacho y las formas de pago se confirmarán por WhatsApp.
+            </p>
+
+            <button class="btn btn-primary" type="button" onclick="pedido()">
+              Consultar pedido por WhatsApp
+            </button>
+
+            <button class="btn btn-secondary" type="button" onclick="vaciar()">
+              Vaciar carrito
+            </button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="section section-white" id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Hablemos</span>
+          <h2>Estamos para ayudarte</h2>
+          <p>¿Tienes dudas o una idea especial? Nos encantará conversar contigo.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Creemos algo único ✨</h3>
+          <p>
+            Escríbenos directamente para consultar por productos,
+            personalizaciones, disponibilidad y pedidos.
+          </p>
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/56977286221"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="logo.jpeg.jpg" alt="Logo AD NovaTech 3D Studio">
+        <span>AD NovaTech 3D Studio</span>
+      </div>
+
+      <p>Ideas que toman forma, creadas con cariño.</p>
+      <p class="copyright">
+        © <span id="year"></span> AD NovaTech 3D Studio. Todos los derechos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- PARTE 3 CONTINÚA AQUÍ -->
+
+  <script>
+    "use strict";
+
+    // WhatsApp de AD NovaTech 3D Studio
+    const NUMERO_WHATSAPP = "56977286221";
+
+    // Productos seleccionados por el cliente
+    let carrito = [];
+
+    // Formato de moneda chilena
+    function formatoPrecio(precio) {
+      return "$" + Number(precio).toLocaleString("es-CL");
+    }
+
+    // Abrir WhatsApp con el mensaje preparado
+    function abrirWhatsApp(mensaje) {
+      const url =
+        "https://wa.me/" +
+        NUMERO_WHATSAPP +
+        "?text=" +
+        encodeURIComponent(mensaje);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    // Agregar productos al carrito
+    function agregarAlCarrito(nombre, precio) {
+      const existente = carrito.find(
+        producto => producto.nombre === nombre
+      );
+
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({
+          nombre: nombre,
+          precio: Number(precio),
+          cantidad: 1
+        });
+      }
+
+      actualizarCarrito();
+
+      // Actualizar el contador y mostrar confirmación
+      const contador = document.getElementById("contador-carrito");
+
+      if (contador) {
+        contador.textContent = carrito.reduce(
+          (suma, producto) => suma + producto.cantidad,
+          0
+        );
+      }
+    }
+
+    // Modificar la cantidad de un producto
+    function cambiarCantidad(nombre, cambio) {
+      const producto = carrito.find(
+        item => item.nombre === nombre
+      );
+
+      if (!producto) return;
+
+      producto.cantidad += cambio;
+
+      if (producto.cantidad <= 0) {
+        carrito = carrito.filter(
+          item => item.nombre !== nombre
+        );
+      }
+
+      actualizarCarrito();
+    }
+
+    // Eliminar un producto
+    function eliminarProducto(nombre) {
       carrito = carrito.filter(
         item => item.nombre !== nombre
       );
+
+      actualizarCarrito();
     }
 
-    actualizarCarrito();
-  }
+    // Actualizar los productos, cantidades y subtotal
+    function actualizarCarrito() {
+      const lista = document.getElementById("lista-carrito");
+      const totalElemento = document.getElementById("total");
+      const contador = document.getElementById("contador-carrito");
 
-  // ELIMINAR PRODUCTO
-  function eliminarProducto(nombre) {
-    carrito = carrito.filter(
-      item => item.nombre !== nombre
-    );
+      if (!lista || !totalElemento) return;
 
-    actualizarCarrito();
-  }
+      const cantidadTotal = carrito.reduce(
+        (suma, producto) => suma + producto.cantidad,
+        0
+      );
 
-  // ACTUALIZAR LA VISTA DEL CARRITO
-  function actualizarCarrito() {
-    const lista = document.getElementById("lista-carrito");
-    const totalElemento = document.getElementById("total");
+      if (contador) {
+        contador.textContent = cantidadTotal;
+      }
 
-    if (!lista || !totalElemento) return;
+      if (carrito.length === 0) {
+        lista.replaceChildren();
 
-    if (carrito.length === 0) {
-      lista.innerHTML =
-        '<p class="empty-cart">Tu carrito está esperando tus ideas favoritas.</p>';
+        const mensajeVacio = document.createElement("p");
+        mensajeVacio.className = "empty-cart";
+        mensajeVacio.textContent =
+          "Tu carrito está esperando tus ideas favoritas.";
 
-      totalElemento.textContent = formatoPrecio(0);
-      return;
+        lista.appendChild(mensajeVacio);
+        totalElemento.textContent = formatoPrecio(0);
+        return;
+      }
+
+      lista.replaceChildren();
+
+      carrito.forEach(producto => {
+        const elemento = document.createElement("article");
+        elemento.className = "cart-item";
+
+        const informacion = document.createElement("div");
+
+        const nombre = document.createElement("h3");
+        nombre.textContent = producto.nombre;
+
+        const precio = document.createElement("p");
+        precio.textContent =
+          formatoPrecio(producto.precio) + " por unidad";
+
+        const subtotal = document.createElement("p");
+        subtotal.textContent =
+          "Subtotal: " +
+          formatoPrecio(producto.precio * producto.cantidad);
+
+        informacion.appendChild(nombre);
+        informacion.appendChild(precio);
+        informacion.appendChild(subtotal);
+
+        const controles = document.createElement("div");
+        controles.className = "cart-controls";
+
+        const menos = document.createElement("button");
+        menos.type = "button";
+        menos.className = "quantity-btn";
+        menos.textContent = "−";
+        menos.setAttribute(
+          "aria-label",
+          "Restar una unidad de " + producto.nombre
+        );
+        menos.addEventListener("click", function() {
+          cambiarCantidad(producto.nombre, -1);
+        });
+
+        const cantidad = document.createElement("span");
+        cantidad.className = "quantity";
+        cantidad.textContent = producto.cantidad;
+
+        const mas = document.createElement("button");
+        mas.type = "button";
+        mas.className = "quantity-btn";
+        mas.textContent = "+";
+        mas.setAttribute(
+          "aria-label",
+          "Agregar una unidad de " + producto.nombre
+        );
+        mas.addEventListener("click", function() {
+          cambiarCantidad(producto.nombre, 1);
+        });
+
+        const eliminar = document.createElement("button");
+        eliminar.type = "button";
+        eliminar.className = "remove-item";
+        eliminar.textContent = "Eliminar";
+        eliminar.addEventListener("click", function() {
+          eliminarProducto(producto.nombre);
+        });
+
+        controles.appendChild(menos);
+        controles.appendChild(cantidad);
+        controles.appendChild(mas);
+        controles.appendChild(eliminar);
+
+        elemento.appendChild(informacion);
+        elemento.appendChild(controles);
+
+        lista.appendChild(elemento);
+      });
+
+      const total = carrito.reduce(
+        (suma, producto) =>
+          suma + producto.precio * producto.cantidad,
+        0
+      );
+
+      totalElemento.textContent = formatoPrecio(total);
     }
 
-    lista
+    // Vaciar el carrito
+    function vaciar() {
+      carrito = [];
+      actualizarCarrito();
+    }
+
+    // Preparar el pedido en WhatsApp
+    function pedido() {
+      if (carrito.length === 0) {
+        alert(
+          "Tu carrito está vacío. Agrega algún producto antes de continuar."
+        );
+        return;
+      }
+
+      const total = carrito.reduce(
+        (suma, producto) =>
+          suma + producto.precio * producto.cantidad,
+        0
+      );
+
+      let mensaje =
+        "¡Hola, AD NovaTech 3D Studio! ✨\n\n" +
+        "Quiero consultar por este pedido:\n\n";
+
+      carrito.forEach(producto => {
+        mensaje +=
+          "• " +
+          producto.nombre +
+          " x" +
+          producto.cantidad +
+          " — " +
+          formatoPrecio(producto.precio * producto.cantidad) +
+          "\n";
+      });
+
+      mensaje +=
+        "\nSubtotal estimado: " +
+        formatoPrecio(total) +
+        "\n\nQuisiera confirmar disponibilidad, precio final, despacho y formas de pago. ¡Gracias! 💛";
+
+      abrirWhatsApp(mensaje);
+    }
+
+    // Formulario de personalización
+    function configurarFormulario() {
+      const formulario = document.getElementById("form-cotizacion");
+
+      if (!formulario) return;
+
+      formulario.addEventListener("submit", function(evento) {
+        evento.preventDefault();
+
+        const nombre = document.getElementById("cliente").value.trim();
+        const tipo = document.getElementById("tipo").value;
+        const detalles = document.getElementById("detalles").value.trim();
+        const estado = document.getElementById("estado-form");
+
+        if (!nombre || !tipo || !detalles) {
+          if (estado) {
+            estado.textContent = "Completa todos los campos para continuar.";
+          }
+          return;
+        }
+
+        const mensaje =
+          "¡Hola, AD NovaTech 3D Studio! ✨\n\n" +
+          "Quiero consultar por una creación personalizada.\n\n" +
+          "Nombre: " + nombre + "\n" +
+          "Proyecto: " + tipo + "\n" +
+          "Detalles de mi idea: " + detalles + "\n\n" +
+          "¿Me pueden orientar con el precio y el tiempo de elaboración? 💛";
+
+        if (estado) {
+          estado.textContent =
+            "Se abrirá WhatsApp con tu consulta preparada. Recuerda presionar Enviar.";
+        }
+
+        abrirWhatsApp(mensaje);
+      });
+    }
+
+    // Inicialización
+    function iniciarPagina() {
+      const anio = document.getElementById("year");
+
+      if (anio) {
+        anio.textContent = new Date().getFullYear();
+      }
+
+      configurarFormulario();
+      actualizarCarrito();
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", iniciarPagina);
+    } else {
+      iniciarPagina();
+    }
+  </script>
+</body>
+</html>
