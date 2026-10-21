@@ -7,6 +7,7 @@
 <meta name="theme-color" content="#17243c">
 <title>AD NovaTech 3D Studio | Impresión 3D</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
 :root{--navy:#17243c;--navy2:#263a59;--gold:#c49a52;--gold-light:#f0d8a4;--cream:#fbf8f2;--text:#343947;--muted:#737987;--line:#e8dfd1}
 *{box-sizing:border-box}
@@ -87,44 +88,7 @@ section{padding:65px 0}
 .section-head{text-align:center;max-width:690px;margin:0 auto 38px}
 .section-head h2{font-size:clamp(2rem,4vw,3rem);margin:0 0 12px}
 .section-head p{margin:0;color:var(--muted)}
-</style>
-</head>
-<body>
-<div class="sparkle-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-<div class="topbar">✨ Creaciones únicas · Detalles personalizados · Impresión 3D ✨</div>
-<header>
-<div class="container nav">
-<a class="brand" href="#inicio">
-<img src="logo.jpeg.jpg" alt="Logo AD NovaTech 3D Studio">
-<span><span class="brand-title">AD NovaTech 3D Studio</span><span class="brand-sub">Impresión 3D</span></span>
-</a>
-<nav aria-label="Navegación principal">
-<a href="#inicio">Inicio</a>
-<a href="#productos">Productos</a>
-<a href="#personalizacion">Personaliza</a>
-<a href="#como-comprar">Cómo comprar</a>
-<a href="#carrito">Carrito (<span id="contador">0</span>)</a>
-</nav>
-</div>
-</header>
-<main>
-<section class="hero active-section" id="inicio">
-<div class="container hero-grid">
-<div>
-<span class="eyebrow">DISEÑOS CON PERSONALIDAD</span>
-<h1>Pequeñas ideas,<br><span>grandes creaciones.</span></h1>
-<p>Descubre productos impresos en 3D, regalos especiales y diseños personalizados creados con cariño.</p>
-<div class="actions"><a class="btn btn-dark" href="#productos">Explorar productos</a><a class="btn btn-light" href="#personalizacion">Crear mi idea</a></div>
-<div class="features"><span>Diseños personalizados</span><span>Detalles originales</span><span>Hecho a pedido</span></div>
-</div>
-<div class="hero-logo"><div class="logo-frame"><img src="logo.jpeg.jpg" alt="AD NovaTech 3D Studio"></div></div>
-</div>
-</section>
 
-<
-<!-- CONTINUACIÓN DE LA PARTE 1 -->
-
-<style>
 /* Catálogo */
 .catalog{background:#fffaf4}
 .catalog-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:23px}
@@ -202,8 +166,38 @@ footer strong{color:var(--gold-light)}
  .cart-controls{flex-wrap:wrap}
 }
 </style>
+</head>
+<body>
+<div class="sparkle-bg" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="topbar">✨ Creaciones únicas · Detalles personalizados · Impresión 3D ✨</div>
+<header>
+<div class="container nav">
+<a class="brand" href="#inicio">
+<img src="logo.jpeg.jpg" alt="Logo AD NovaTech 3D Studio">
+<span><span class="brand-title">AD NovaTech 3D Studio</span><span class="brand-sub">Impresión 3D</span></span>
+</a>
+<nav aria-label="Navegación principal">
+<a href="#inicio">Inicio</a>
+<a href="#productos">Productos</a>
+<a href="#personalizacion">Personaliza</a>
+<a href="#como-comprar">Cómo comprar</a>
+<a href="#carrito">Carrito (<span id="contador">0</span>)</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="hero active-section" id="inicio">
+<div class="container hero-grid">
+<div>
+<span class="eyebrow">DISEÑOS CON PERSONALIDAD</span>
+<h1>Pequeñas ideas,<br><span>grandes creaciones.</span></h1>
+<p>Descubre productos impresos en 3D, regalos especiales y diseños personalizados creados con cariño.</p>
+<div class="actions"><a class="btn btn-dark" href="#productos">Explorar productos</a><a class="btn btn-light" href="#personalizacion">Crear mi idea</a></div>
+<div class="features"><span>Diseños personalizados</span><span>Detalles originales</span><span>Hecho a pedido</span></div>
+</div>
+<div class="hero-logo"><div class="logo-frame"><img src="logo.jpeg.jpg" alt="AD NovaTech 3D Studio"></div></div>
+</div>
 
-<!-- El bloque Cómo comprar queda dentro de Inicio -->
 <div class="home-buy" id="como-comprar">
 <div class="container">
 <div class="section-head">
@@ -233,7 +227,10 @@ footer strong{color:var(--gold-light)}
 </div>
 </div>
 </div>
+</section>
 
+<!-- LA PARTE 2 CONTINÚA DESPUÉS DE ESTE PUNTO -->
+  
 <!-- Productos -->
 <section class="catalog" id="productos">
 <div class="container">
@@ -321,17 +318,41 @@ footer strong{color:var(--gold-light)}
 <li>Envíanos tu solicitud por WhatsApp.</li>
 </ul>
 </div>
+
 <form class="form" id="form-personalizacion">
 <h3>Cuéntanos tu idea</h3>
 <div class="form-grid">
-<div class="field"><label for="nombre">Tu nombre</label><input id="nombre" name="nombre" required placeholder="Escribe tu nombre"></div>
-<div class="field"><label for="producto">Producto</label><select id="producto" name="producto" required><option value="">Selecciona una opción</option><option>Decoración 3D</option><option>Llaveros personalizados</option><option>Maceteros 3D</option><option>Regalos especiales</option><option>Figuras articuladas</option><option>Tu idea en 3D</option></select></div>
+<div class="field">
+<label for="nombre">Tu nombre</label>
+<input id="nombre" name="nombre" required placeholder="Escribe tu nombre">
+</div>
+<div class="field">
+<label for="producto">Producto</label>
+<select id="producto" name="producto" required>
+<option value="">Selecciona una opción</option>
+<option>Decoración 3D</option>
+<option>Llaveros personalizados</option>
+<option>Maceteros 3D</option>
+<option>Regalos especiales</option>
+<option>Figuras articuladas</option>
+<option>Tu idea en 3D</option>
+</select>
+</div>
 </div>
 <div class="form-grid">
-<div class="field"><label for="cantidad">Cantidad (máximo 99)</label><input id="cantidad" name="cantidad" type="number" min="1" max="99" value="1" required></div>
-<div class="field"><label for="color">Color preferido</label><input id="color" name="color" placeholder="Ej. rosado, blanco..."></div>
+<div class="field">
+<label for="cantidad">Cantidad (máximo 99)</label>
+<input id="cantidad" name="cantidad" type="number" min="1" max="99" value="1" required>
 </div>
-<div class="field"><label for="detalles">Cuéntanos los detalles</label><textarea id="detalles" name="detalles" required placeholder="Describe tu idea, tamaño, nombre o diseño..."></textarea></div>
+<div class="field">
+<label for="color">Color preferido</label>
+<input id="color" name="color" placeholder="Ej. rosado, blanco...">
+</div>
+</div>
+<div class="field">
+<label for="detalles">Cuéntanos los detalles</label>
+<textarea id="detalles" name="detalles" required placeholder="Describe tu idea, tamaño, nombre o diseño..."></textarea>
+</div>
 <p class="form-note">La solicitud no confirma una compra. Te contactaremos para revisar los detalles y el precio.</p>
 <button class="btn btn-gold" type="submit">Enviar solicitud por WhatsApp</button>
 </form>
@@ -339,8 +360,7 @@ footer strong{color:var(--gold-light)}
 </div>
 </section>
 
-<!-- PARTE 3 CONTINÚA AQUÍ -->
-
+<!-
 <!-- Carrito -->
 <section class="cart-section" id="carrito">
 <div class="container">
@@ -551,7 +571,7 @@ function abrirWhatsApp(mensaje){
   window.open(url, "_blank", "noopener,noreferrer");
 }
 
-/* Navegación: Inicio incluye también Cómo comprar */
+/* Navegación: Inicio incluye Cómo comprar */
 function mostrarSeccion(id){
   const destino = document.getElementById(id);
   if(!destino) return;
@@ -584,4 +604,5 @@ actualizarCarrito();
 </script>
 </body>
 </html>
-!-- PARTE 2 CONTINÚA AQUÍ -->
+- PARTE 3 CONTINÚA AQUÍ -->
+
