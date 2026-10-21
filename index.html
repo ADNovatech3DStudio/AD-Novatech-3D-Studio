@@ -176,3 +176,287 @@ footer{background:#111a2b;color:#e5e8ef;padding:23px 0;font-size:.82rem}
 <div class="hero-logo"><div class="logo-frame"><img src="logo.jpeg.jpg" alt="AD NovaTech 3D Studio"></div></div>
 </div>
 </section>
+
+<section class="catalog" id="productos">
+<div class="container">
+<div class="section-head"><span class="eyebrow">NUESTRAS CREACIONES</span><h2>Encuentra tu próximo favorito</h2><p>Selecciona la cantidad que deseas y agrégala al carrito.</p></div>
+<div class="products">
+
+<article class="product">
+<div class="product-img"><img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=850&q=85" alt="Figura decorativa"></div>
+<div class="product-body"><span class="category">Decoración</span><h3>Figura decorativa 3D</h3><p>Una pieza original para dar personalidad a tus espacios.</p>
+<div class="product-foot"><span class="price">$4.990</span><div class="product-actions">
+<div class="qty-picker"><button type="button" onclick="cantidadProducto(this,-1)">−</button><output>1</output><button type="button" onclick="cantidadProducto(this,1)">+</button></div>
+<button class="btn btn-dark btn-small" onclick="agregarSeleccionado(this,'figura','Figura decorativa 3D',4990)">Agregar</button>
+</div></div></div></article>
+
+<article class="product">
+<div class="product-img"><img src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?auto=format&fit=crop&w=850&q=85" alt="Accesorios"></div>
+<div class="product-body"><span class="category">Accesorios</span><h3>Llaveros personalizados</h3><p>Un detalle con nombres, iniciales o formas a elección.</p>
+<div class="product-foot"><span class="price">$1.990</span><div class="product-actions">
+<div class="qty-picker"><button type="button" onclick="cantidadProducto(this,-1)">−</button><output>1</output><button type="button" onclick="cantidadProducto(this,1)">+</button></div>
+<button class="btn btn-dark btn-small" onclick="agregarSeleccionado(this,'llavero','Llaveros personalizados',1990)">Agregar</button>
+</div></div></div></article>
+
+<article class="product">
+<div class="product-img"><img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=850&q=85" alt="Decoración para el hogar"></div>
+<div class="product-body"><span class="category">Hogar</span><h3>Adorno personalizado</h3><p>Una idea para cumpleaños, celebraciones y rincones especiales.</p>
+<div class="product-foot"><span class="price">$3.990</span><div class="product-actions">
+<div class="qty-picker"><button type="button" onclick="cantidadProducto(this,-1)">−</button><output>1</output><button type="button" onclick="cantidadProducto(this,1)">+</button></div>
+<button class="btn btn-dark btn-small" onclick="agregarSeleccionado(this,'adorno','Adorno personalizado',3990)">Agregar</button>
+</div></div></div></article>
+
+<article class="product">
+<div class="product-img"><img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=850&q=85" alt="Accesorios cotidianos"></div>
+<div class="product-body"><span class="category">Personalizados</span><h3>Nombre decorativo 3D</h3><p>Un nombre para escritorios, regalos o habitaciones.</p>
+<div class="product-foot"><span class="price">$3.490</span><div class="product-actions">
+<div class="qty-picker"><button type="button" onclick="cantidadProducto(this,-1)">−</button><output>1</output><button type="button" onclick="cantidadProducto(this,1)">+</button></div>
+<button class="btn btn-dark btn-small" onclick="agregarSeleccionado(this,'nombre','Nombre decorativo 3D',3490)">Agregar</button>
+</div></div></div></article>
+
+<article class="product">
+<div class="product-img"><img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=850&q=85" alt="Detalle de regalo"></div>
+<div class="product-body"><span class="category">Regalos</span><h3>Detalle para regalar</h3><p>Un regalo especial adaptable a tu estilo y ocasión.</p>
+<div class="product-foot"><span class="price">$2.990</span><div class="product-actions">
+<div class="qty-picker"><button type="button" onclick="cantidadProducto(this,-1)">−</button><output>1</output><button type="button" onclick="cantidadProducto(this,1)">+</button></div>
+<button class="btn btn-dark btn-small" onclick="agregarSeleccionado(this,'regalo','Detalle para regalar',2990)">Agregar</button>
+</div></div></div></article>
+
+<article class="product">
+<div class="product-img"><img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=850&q=85" alt="Idea decorativa"></div>
+<div class="product-body"><span class="category">A pedido</span><h3>Tu idea en 3D</h3><p>Cuéntanos qué imaginas y revisaremos si podemos fabricarlo.</p>
+<div class="product-foot"><span class="price">A cotizar</span><a class="btn btn-dark btn-small" href="#personalizacion">Consultar</a></div></div></article>
+</div>
+<p class="note">Las imágenes y los precios son ejemplos. Cámbialos por tus productos reales antes de vender.</p>
+</div>
+</section>
+
+<section class="personalize" id="personalizacion">
+<div class="container personalize-grid">
+<div><span class="eyebrow">TU IDEA, TU ESTILO</span><h2>Personaliza tu próxima creación</h2><p>Cuéntanos qué te gustaría fabricar: llaveros, imanes para refrigerador, nombres, figuras, adornos y otros detalles impresos en 3D.</p>
+<ul class="checks"><li>Cuéntanos el producto y la cantidad.</li><li>Indica colores, medidas y detalles.</li><li>Confirma la cotización antes de fabricar.</li></ul></div>
+<form class="form" id="form-cotizacion">
+<h3>Solicitar cotización</h3>
+<div class="field"><label for="cliente">Tu nombre</label><input id="cliente" required placeholder="¿Cómo te llamas?"></div>
+<div class="field"><label for="tipo">Tipo de producto</label><select id="tipo" required><option value="">Selecciona una opción</option><option>Llaveros personalizados</option><option>Imanes para refrigerador</option><option>Nombres decorativos</option><option>Figuras y adornos</option><option>Regalos personalizados</option><option>Otra idea en 3D</option></select></div>
+<div class="field"><label for="detalles">Detalles de tu idea</label><textarea id="detalles" required placeholder="Colores, medidas, cantidad y otros detalles..."></textarea></div>
+<button class="btn btn-dark" type="submit">Preparar consulta</button>
+<p class="note">Se abrirá tu aplicación de correo para que revises y envíes la consulta.</p><div id="estado-form" class="status" role="status"></div>
+</form>
+</div>
+</section>
+
+<section id="como-comprar">
+<div class="container"><div class="section-head"><span class="eyebrow">FÁCIL Y CLARO</span><h2>¿Cómo comprar?</h2><p>Te acompañamos desde la idea hasta la confirmación del pedido.</p></div>
+<div class="steps">
+<article class="step"><div class="step-no">1</div><h3>Elige tu producto</h3><p>Explora las creaciones y agrega al carrito lo que te interese.</p></article>
+<article class="step"><div class="step-no">2</div><h3>Revisa tu selección</h3><p>Comprueba cantidades y subtotal antes de consultar.</p></article>
+<article class="step"><div class="step-no">3</div><h3>Confirma tu pedido</h3><p>Consulta disponibilidad, personalización, despacho y pago antes de fabricar.</p></article>
+</div></div>
+</section>
+
+<section class="cart-section" id="carrito">
+<div class="container"><div class="section-head"><span class="eyebrow">TU SELECCIÓN</span><h2>Resumen del pedido</h2><p>Agrega productos y revisa las cantidades que deseas consultar.</p></div>
+<div class="cart-box"><div class="cart-list" id="lista-carrito"></div>
+<div class="cart-total"><span>Subtotal estimado</span><span id="total">$0</span></div>
+<div class="cart-actions"><button class="btn btn-light" onclick="vaciar()">Vaciar carrito</button><button class="btn btn-dark" onclick="pedido()">Preparar pedido</button></div>
+<div class="payment-note"><strong>Pagos online próximamente.</strong> Este carrito todavía no procesa cobros ni confirma compras. Webpay Plus requiere una integración segura pendiente.</div>
+<div id="estado-carrito" class="status" role="status"></div>
+</div></div>
+</section>
+
+<section class="contact" id="contacto">
+<div class="container"><span class="eyebrow">AD NOVATECH 3D STUDIO</span><h2>Hagamos realidad tu idea</h2><p>Descubre creaciones impresas en 3D y detalles personalizados pensados para ti.</p><a class="btn btn-gold" href="#productos">Ver productos</a></div>
+</section>
+</main>
+<footer><div class="container footer-row"><span>© <span id="year"></span> AD NovaTech 3D Studio</span><span>Impresión 3D · Productos personalizados · Creatividad</span></div></footer>
+
+<script>
+const LIMITE_POR_MODELO = 100;
+const carrito = [];
+
+const clp = n => new Intl.NumberFormat("es-CL", {
+  style:"currency", currency:"CLP", maximumFractionDigits:0
+}).format(n);
+
+function cantidadProducto(boton,cambio){
+  const salida=boton.parentElement.querySelector("output");
+  const actual=Number(salida.textContent)||1;
+  salida.textContent=Math.max(1,Math.min(LIMITE_POR_MODELO,actual+cambio));
+}
+
+function agregar(id,nombre,precio,cantidad=1){
+  const unidades=Math.max(1,Math.min(LIMITE_POR_MODELO,Number(cantidad)||1));
+  const existente=carrito.find(p=>p.id===id);
+  const cantidadActual=existente?existente.cantidad:0;
+
+  if(cantidadActual+unidades>LIMITE_POR_MODELO){
+    document.getElementById("estado-carrito").textContent=
+      "El límite es de 100 unidades por modelo. Ya tienes "+cantidadActual+" de "+nombre+".";
+    return false;
+  }
+
+  if(existente)existente.cantidad+=unidades;
+  else carrito.push({id,nombre,precio,cantidad:unidades});
+
+  renderCarrito();
+  document.getElementById("estado-carrito").textContent=
+    nombre+" agregado. Máximo 100 unidades por modelo.";
+  return true;
+}
+
+function agregarSeleccionado(boton,id,nombre,precio){
+  const salida=boton.parentElement.querySelector(".qty-picker output");
+  const cantidad=Number(salida.textContent)||1;
+  if(agregar(id,nombre,precio,cantidad))salida.textContent="1";
+}
+
+function cambiar(id,cambio){
+  const p=carrito.find(x=>x.id===id);
+  if(!p)return;
+
+  if(cambio>0&&p.cantidad>=LIMITE_POR_MODELO){
+    document.getElementById("estado-carrito").textContent=
+      "Has alcanzado el límite de 100 unidades para este modelo.";
+    return;
+  }
+
+  p.cantidad+=cambio;
+  if(p.cantidad<=0)carrito.splice(carrito.findIndex(x=>x.id===id),1);
+  renderCarrito();
+}
+
+function vaciar(){
+  carrito.length=0;
+  renderCarrito();
+  document.getElementById("estado-carrito").textContent="Carrito vacío.";
+}
+
+function renderCarrito(){
+  const lista=document.getElementById("lista-carrito");
+  lista.replaceChildren();
+
+  const count=carrito.reduce((s,p)=>s+p.cantidad,0);
+  document.getElementById("contador").textContent=count;
+  let total=0;
+
+  if(!carrito.length){
+    const e=document.createElement("div");
+    e.className="empty";
+    e.textContent="Todavía no agregas productos.";
+    lista.appendChild(e);
+  }
+
+  carrito.forEach(p=>{
+    total+=p.precio*p.cantidad;
+    const row=document.createElement("div");
+    row.className="cart-item";
+
+    const info=document.createElement("div");
+    const name=document.createElement("div");
+    name.className="item-name";
+    name.textContent=p.nombre;
+    const detail=document.createElement("div");
+    detail.className="item-detail";
+    detail.textContent=clp(p.precio)+" por unidad";
+    info.append(name,detail);
+
+    const controls=document.createElement("div");
+    controls.className="item-controls";
+
+    const minus=document.createElement("button");
+    minus.className="qty-btn";
+    minus.textContent="−";
+    minus.setAttribute("aria-label","Quitar una unidad de "+p.nombre);
+    minus.onclick=()=>cambiar(p.id,-1);
+
+    const qty=document.createElement("span");
+    qty.textContent=p.cantidad;
+
+    const plus=document.createElement("button");
+    plus.className="qty-btn";
+    plus.textContent="+";
+    plus.setAttribute("aria-label","Agregar una unidad de "+p.nombre);
+    plus.onclick=()=>cambiar(p.id,1);
+
+    const subtotal=document.createElement("strong");
+    subtotal.textContent=clp(p.precio*p.cantidad);
+
+    controls.append(minus,qty,plus,subtotal);
+    row.append(info,controls);
+    lista.appendChild(row);
+  });
+
+  document.getElementById("total").textContent=clp(total);
+}
+
+function pedido(){
+  const estado=document.getElementById("estado-carrito");
+  if(!carrito.length){
+    estado.textContent="Agrega al menos un producto antes de preparar tu pedido.";
+    return;
+  }
+
+  const lineas=carrito.map(p=>
+    `${p.nombre} x ${p.cantidad}: ${clp(p.precio*p.cantidad)}`
+  );
+  const total=carrito.reduce((s,p)=>s+p.precio*p.cantidad,0);
+  const cuerpo=[
+    "Hola, quiero consultar por este pedido de AD NovaTech 3D Studio:",
+    "",
+    ...lineas,
+    "",
+    "Subtotal estimado: "+clp(total),
+    "",
+    "Quisiera confirmar disponibilidad, personalización, despacho y pago."
+  ].join("\n");
+
+  estado.textContent="Se abrirá tu aplicación de correo. El pedido no está pagado ni confirmado.";
+  location.href="mailto:?subject="+encodeURIComponent("Consulta de pedido - AD NovaTech 3D Studio")+"&body="+encodeURIComponent(cuerpo);
+}
+
+document.getElementById("form-cotizacion").addEventListener("submit",e=>{
+  e.preventDefault();
+  const nombre=document.getElementById("cliente").value.trim();
+  const tipo=document.getElementById("tipo").value;
+  const detalles=document.getElementById("detalles").value.trim();
+  const cuerpo=`Hola, soy ${nombre}.\n\nQuiero consultar por: ${tipo}.\n\nDetalles de mi idea:\n${detalles}\n\nQuedo pendiente de la cotización. Gracias.`;
+
+  document.getElementById("estado-form").textContent=
+    "Abriendo tu aplicación de correo para revisar y enviar la consulta.";
+  location.href="mailto:?subject="+encodeURIComponent("Cotización - AD NovaTech 3D Studio")+"&body="+encodeURIComponent(cuerpo);
+});
+
+document.getElementById("year").textContent=new Date().getFullYear();
+renderCarrito();
+
+/* Navegación: una sola sección visible a la vez */
+(function(){
+  const secciones=Array.from(document.querySelectorAll("main>section"));
+
+  function mostrarSeccion(id){
+    let objetivo=document.getElementById(id);
+    let seccion=objetivo&&objetivo.closest("main>section");
+    if(!seccion)seccion=document.getElementById("inicio");
+
+    secciones.forEach(s=>s.classList.toggle("active-section",s===seccion));
+    history.replaceState(null,"","#"+seccion.id);
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
+
+  document.addEventListener("click",function(e){
+    const enlace=e.target.closest('a[href^="#"]');
+    if(!enlace)return;
+    const id=enlace.getAttribute("href").slice(1);
+    if(document.getElementById(id)){
+      e.preventDefault();
+      mostrarSeccion(id);
+    }
+  });
+
+  const inicial=location.hash.slice(1)||"inicio";
+  mostrarSeccion(inicial);
+})();
+</script>
+</body>
+</html>
