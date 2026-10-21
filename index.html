@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,213 +6,1164 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#17243c">
 <title>AD NovaTech 3D Studio | Impresión 3D</title>
+
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{--navy:#17243c;--navy2:#263a59;--gold:#c49a52;--gold-light:#f0d8a4;--cream:#fbf8f2;--text:#343947;--muted:#737987;--line:#e8dfd1}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text);background:var(--cream);line-height:1.6;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-.container{width:min(1160px,91%);margin:auto}
-
-/* Fondo original con destellos */
-.sparkle-bg{position:fixed;inset:0;pointer-events:none;z-index:-1;overflow:hidden;background:radial-gradient(ellipse at 15% 15%,#f5e6c855,transparent 38%),radial-gradient(ellipse at 90% 45%,#e8d5c955,transparent 35%),var(--cream)}
-.sparkle-bg span{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 10px 3px #d6ad5a55;animation:twinkle 4s ease-in-out infinite}
-.sparkle-bg span:nth-child(1){left:8%;top:22%}
-.sparkle-bg span:nth-child(2){left:22%;top:68%;animation-delay:1s}
-.sparkle-bg span:nth-child(3){left:39%;top:17%;animation-delay:2s}
-.sparkle-bg span:nth-child(4){left:56%;top:78%;animation-delay:.5s}
-.sparkle-bg span:nth-child(5){left:72%;top:24%;animation-delay:1.8s}
-.sparkle-bg span:nth-child(6){left:88%;top:62%;animation-delay:.7s}
-.sparkle-bg span:nth-child(7){left:95%;top:12%;animation-delay:2.5s}
-.sparkle-bg span:nth-child(8){left:13%;top:88%;animation-delay:1.1s}
-@keyframes twinkle{0%,100%{opacity:.15;transform:scale(.65)}50%{opacity:1;transform:scale(1.5)}}
-
-/* Animaciones originales de títulos */
-h1,h2,h3,.brand-title{font-family:"Playfair Display",serif;transform-origin:center;animation:tituloDorado 3.8s ease-in-out infinite}
-h1{animation-name:tituloPrincipal}
-h3{animation-duration:4.8s}
-@keyframes tituloDorado{
-  0%,100%{transform:translateY(0);text-shadow:0 0 2px #c49a5220}
-  50%{transform:translateY(-4px);text-shadow:0 0 10px #c49a5260,0 0 18px #f0d8a455}
-}
-@keyframes tituloPrincipal{
-  0%,100%{transform:translateY(0) scale(1);text-shadow:0 0 2px #c49a5220}
-  50%{transform:translateY(-7px) scale(1.018);text-shadow:0 0 12px #c49a5280,0 0 22px #f0d8a477}
-}
-@media(prefers-reduced-motion:reduce){h1,h2,h3,.brand-title{animation:none}}
-
-/* Navegación por secciones */
-main>section{display:none}
-main>section.active-section{display:block}
-
-.topbar{background:var(--navy);color:white;text-align:center;padding:8px 12px;font-size:.8rem;letter-spacing:.06em}
-header{position:sticky;top:0;z-index:20;background:#fbf8f2ed;backdrop-filter:blur(14px);border-bottom:1px solid #d9c59d80}
-.nav{min-height:84px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:12px;min-width:0}
-.brand img{width:58px;height:58px;object-fit:contain;border-radius:50%;transition:transform .4s}
-.brand:hover img{transform:rotate(-5deg) scale(1.06)}
-.brand-title{display:block;color:var(--navy);font-size:1.08rem;font-weight:700;line-height:1.2}
-.brand-sub{display:block;color:#a77a32;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;margin-top:5px}
-nav{display:flex;align-items:center;gap:18px;font-size:.9rem;font-weight:600}
-nav a:hover{color:#a77a32}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:8px;padding:12px 19px;font-weight:700;transition:transform .2s,box-shadow .2s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px #17243c1c}
-.btn-dark{background:var(--navy);color:white}
-.btn-gold{background:linear-gradient(110deg,#b8893e,#f0d8a4,#b8893e);color:#231b0e}
-.btn-light{background:white;border:1px solid var(--line);color:var(--navy)}
-.btn-small{padding:9px 12px;font-size:.84rem}
-
-.hero{padding:76px 0 86px;background:linear-gradient(125deg,#fbf8f2f2,#f7eee7dc)}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
-.eyebrow{display:inline-block;color:#9b702b;text-transform:uppercase;letter-spacing:.18em;font-size:.76rem;font-weight:700;margin-bottom:15px}
-h1,h2,h3{color:var(--navy);line-height:1.18}
-h1{font-size:clamp(2.7rem,5vw,4.5rem);letter-spacing:-.035em;margin:0 0 20px}
-h1 span{color:#a77a32}
-.hero p{max-width:550px;color:#606779;font-size:1.08rem;margin:0 0 27px}
-.actions,.features{display:flex;flex-wrap:wrap;gap:12px}
-.features{gap:17px;color:#646b79;font-size:.83rem;margin-top:28px}
-.features span:before{content:"✦";color:var(--gold);margin-right:6px}
-.hero-logo{display:flex;justify-content:center;animation:float 5.5s ease-in-out infinite}
-.logo-frame{position:relative;width:min(100%,410px);aspect-ratio:1;padding:15px;border:1px solid var(--gold);border-radius:22px;background:#ffffffc9;box-shadow:0 22px 60px #17243c17,0 0 30px #c49a5220;overflow:hidden}
-.logo-frame:before{content:"";position:absolute;inset:7px;border:1px solid #c49a5270;border-radius:15px;pointer-events:none;z-index:2}
-.logo-frame:after{content:"";position:absolute;inset:-30% auto -30% -70%;width:45%;background:linear-gradient(110deg,transparent,#ffffffc9,transparent);transform:skewX(-20deg);animation:shine 5.2s ease-in-out infinite;pointer-events:none;z-index:3}
-.logo-frame img{width:100%;height:100%;object-fit:contain;border-radius:12px}
-@keyframes shine{0%,25%{left:-70%}68%,100%{left:135%}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-section{padding:65px 0}
-.section-head{text-align:center;max-width:690px;margin:0 auto 38px}
-.section-head h2{font-size:clamp(2rem,4vw,3rem);margin:0 0 12px}
-.section-head p{margin:0;color:var(--muted)}
-  /* ===== CÓMO COMPRAR ===== */
-.home-buy{
-  padding:44px 0 12px;
-  margin-top:10px;
-  border-top:1px solid var(--line);
-}
-.home-buy .section-head{margin-bottom:25px}
-.steps{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:22px;
-}
-.step{
-  background:white;
-  border:1px solid var(--line);
-  border-radius:12px;
-  padding:25px;
-}
-.step-no{
-  width:42px;height:42px;
-  display:grid;place-items:center;
-  border-radius:50%;
-  background:var(--navy);
-  color:white;font-weight:700;
-  margin-bottom:15px;
-}
-.step h3{font-size:1.23rem;margin:0 0 9px}
-.step p{color:var(--muted);font-size:.92rem;margin:0}
-.home-message{
-  text-align:center;max-width:760px;
-  margin:35px auto 0;padding:24px 18px;
-  border-top:1px solid var(--line);
-  color:var(--navy);
-  font-family:"Playfair Display",serif;
-  font-size:1.18rem;font-weight:600;
-}
-.home-message span{
-  display:block;color:#9b702b;
-  font-family:"DM Sans",sans-serif;
-  font-size:.82rem;font-weight:600;
-  margin-top:9px;letter-spacing:.04em;
+:root {
+  --navy: #17243c;
+  --navy2: #263a59;
+  --gold: #c49a52;
+  --gold-light: #f0d8a4;
+  --cream: #fbf8f2;
+  --text: #343947;
+  --muted: #737987;
+  --line: #e8dfd1;
 }
 
-/* ===== PRODUCTOS ===== */
-.products-section{padding:55px 7%;background:#fbf8f1}
-.section-heading{text-align:center;max-width:720px;margin:0 auto 35px}
-.section-heading h2{color:#142b49;font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3rem);margin-bottom:12px}
-.section-heading p{color:#626777;line-height:1.7}
-.products-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1200px;margin:auto}
-.product-card{background:#fff;border:1px solid #e9dfce;border-radius:20px;padding:24px;box-shadow:0 8px 25px rgba(20,43,73,.06);display:flex;flex-direction:column;gap:12px}
-.product-icon{background:#f5eddf;border-radius:16px;min-height:130px;display:grid;place-items:center;font-size:3.5rem}
-.product-card h3{color:#142b49;margin:4px 0 0}
-.product-card p{color:#626777;line-height:1.6;margin:0}
-.product-price{color:#a57a32!important;font-size:1.35rem;font-weight:800}
-.stock-count{background:#f8f4ec;border-radius:9px;padding:9px 12px;font-size:.9rem}
-.stock-count strong{color:#142b49}
-.qty-picker{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:6px}
-.qty-picker button{width:38px;height:38px;border:1px solid #d7c39e;border-radius:50%;background:#fff;color:#142b49;font-size:1.3rem;cursor:pointer}
-.qty-picker output{min-width:28px;text-align:center;color:#142b49;font-weight:800}
-.btn-primary,.btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 18px;border-radius:999px;border:none;text-decoration:none;font:inherit;font-weight:700;cursor:pointer;transition:transform .2s,opacity .2s}
-.btn-primary{background:#142b49;color:#fff}
-.btn-secondary{background:#e9d5ad;color:#142b49}
-.btn-primary:hover,.btn-secondary:hover{transform:translateY(-2px);opacity:.92}
-.product-card .btn-primary{width:100%;margin-top:auto}
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: min(1160px, 91%);
+  margin: auto;
+}
+
+/* FONDO Y DESTELLOS */
+.sparkle-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 15% 15%, #f5e6c855, transparent 38%),
+    radial-gradient(ellipse at 90% 45%, #e8d5c955, transparent 35%),
+    var(--cream);
+}
+
+.sparkle-bg span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold-light);
+  box-shadow: 0 0 10px 3px #d6ad5a55;
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.sparkle-bg span:nth-child(1) { left: 8%; top: 22%; }
+.sparkle-bg span:nth-child(2) { left: 22%; top: 68%; animation-delay: 1s; }
+.sparkle-bg span:nth-child(3) { left: 39%; top: 17%; animation-delay: 2s; }
+.sparkle-bg span:nth-child(4) { left: 56%; top: 78%; animation-delay: .5s; }
+.sparkle-bg span:nth-child(5) { left: 72%; top: 24%; animation-delay: 1.8s; }
+.sparkle-bg span:nth-child(6) { left: 88%; top: 62%; animation-delay: .7s; }
+.sparkle-bg span:nth-child(7) { left: 95%; top: 12%; animation-delay: 2.5s; }
+.sparkle-bg span:nth-child(8) { left: 13%; top: 88%; animation-delay: 1.1s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: .15; transform: scale(.65); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* TÍTULOS ANIMADOS */
+h1, h2, h3, .brand-title {
+  font-family: "Playfair Display", serif;
+  transform-origin: center;
+  animation: tituloDorado 3.8s ease-in-out infinite;
+}
+
+h1 {
+  animation-name: tituloPrincipal;
+}
+
+h3 {
+  animation-duration: 4.8s;
+}
+
+@keyframes tituloDorado {
+  0%, 100% {
+    transform: translateY(0);
+    text-shadow: 0 0 2px #c49a5220;
+  }
+  50% {
+    transform: translateY(-4px);
+    text-shadow: 0 0 10px #c49a5260, 0 0 18px #f0d8a455;
+  }
+}
+
+@keyframes tituloPrincipal {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    text-shadow: 0 0 2px #c49a5220;
+  }
+  50% {
+    transform: translateY(-7px) scale(1.018);
+    text-shadow: 0 0 12px #c49a5280, 0 0 22px #f0d8a477;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  h1, h2, h3, .brand-title {
+    animation: none;
+  }
+}
+
+/* PESTAÑAS: SOLO SE MUESTRA LA SECCIÓN ACTIVA */
+main > section {
+  display: none;
+}
+
+main > section.active-section {
+  display: block;
+}
+
+.topbar {
+  background: var(--navy);
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: .8rem;
+  letter-spacing: .06em;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fbf8f2ed;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid #d9c59d80;
+}
+
+.nav {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  border-radius: 50%;
+  transition: transform .4s;
+}
+
+.brand:hover img {
+  transform: rotate(-5deg) scale(1.06);
+}
+
+.brand-title {
+  display: block;
+  color: var(--navy);
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-sub {
+  display: block;
+  color: #a77a32;
+  font-size: .72rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: #a77a32;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 8px;
+  padding: 12px 19px;
+  font-weight: 700;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px #17243c1c;
+}
+
+.btn-dark {
+  background: var(--navy);
+  color: white;
+}
+
+.btn-gold {
+  background: linear-gradient(110deg, #b8893e, #f0d8a4, #b8893e);
+  color: #231b0e;
+}
+
+.btn-light {
+  background: white;
+  border: 1px solid var(--line);
+  color: var(--navy);
+}
+
+.btn-small {
+  padding: 9px 12px;
+  font-size: .84rem;
+}
+
+/* INICIO */
+.hero {
+  padding: 76px 0 86px;
+  background: linear-gradient(125deg, #fbf8f2f2, #f7eee7dc);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 55px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #9b702b;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: .76rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+h1, h2, h3 {
+  color: var(--navy);
+  line-height: 1.18;
+}
+
+h1 {
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  letter-spacing: -.035em;
+  margin: 0 0 20px;
+}
+
+h1 span {
+  color: #a77a32;
+}
+
+.hero p {
+  max-width: 550px;
+  color: #606779;
+  font-size: 1.08rem;
+  margin: 0 0 27px;
+}
+
+.actions, .features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.features {
+  gap: 17px;
+  color: #646b79;
+  font-size: .83rem;
+  margin-top: 28px;
+}
+
+.features span::before {
+  content: "✦";
+  color: var(--gold);
+  margin-right: 6px;
+}
+
+.hero-logo {
+  display: flex;
+  justify-content: center;
+  animation: float 5.5s ease-in-out infinite;
+}
+
+.logo-frame {
+  position: relative;
+  width: min(100%, 410px);
+  aspect-ratio: 1;
+  padding: 15px;
+  border: 1px solid var(--gold);
+  border-radius: 22px;
+  background: #ffffffc9;
+  box-shadow: 0 22px 60px #17243c17, 0 0 30px #c49a5220;
+  overflow: hidden;
+}
+
+.logo-frame::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid #c49a5270;
+  border-radius: 15px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.logo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+section {
+  padding: 65px 0;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 690px;
+  margin: 0 auto 38px;
+}
+
+.section-head h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 12px;
+}
+
+.section-head p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* CÓMO COMPRAR DENTRO DE INICIO */
+.home-buy {
+  padding: 44px 0 12px;
+  margin-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.home-buy .section-head {
+  margin-bottom: 25px;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.step {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+.step-no {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--navy);
+  color: white;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.step h3 {
+  font-size: 1.23rem;
+  margin: 0 0 9px;
+}
+
+.step p {
+  color: var(--muted);
+  font-size: .92rem;
+  margin: 0;
+}
+
+.home-message {
+  text-align: center;
+  max-width: 760px;
+  margin: 35px auto 0;
+  padding: 24px 18px;
+  border-top: 1px solid var(--line);
+  color: var(--navy);
+  font-family: "Playfair Display", serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+}
+
+.home-message span {
+  display: block;
+  color: #9b702b;
+  font-family: "DM Sans", sans-serif;
+  font-size: .82rem;
+  font-weight: 600;
+  margin-top: 9px;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .hero {
+    padding: 50px 0;
+  }
+
+  .hero-logo {
+    order: -1;
+  }
+
+  .logo-frame {
+    width: min(80%, 330px);
+  }
+
+  nav {
+    gap: 12px;
+    font-size: .82rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .nav {
+    padding: 12px 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .brand img {
+    width: 48px;
+    height: 48px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="sparkle-bg" aria-hidden="true">
+  <span></span><span></span><span></span><span></span>
+  <span></span><span></span><span></span><span></span>
+</div>
+
+<div class="topbar">
+  ✨ Creaciones únicas · Detalles personalizados · Impresión 3D ✨
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="#inicio">
+      <img src="logo.jpeg.jpg" alt="Logo AD NovaTech 3D Studio">
+      <span>
+        <span class="brand-title">AD NovaTech 3D Studio</span>
+        <span class="brand-sub">Impresión 3D</span>
+      </span>
+    </a>
+
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#personalizacion">Personaliza</a>
+      <a href="#carrito">Carrito (<span id="contador">0</span>)</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- INICIO: PORTADA Y CÓMO COMPRAR -->
+  <section class="hero active-section" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">DISEÑOS CON PERSONALIDAD</span>
+        <h1>Pequeñas ideas,<br><span>grandes creaciones.</span></h1>
+        <p>
+          Descubre productos impresos en 3D, regalos especiales y diseños
+          personalizados creados con cariño.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-dark" href="#productos">Explorar productos</a>
+          <a class="btn btn-light" href="#personalizacion">Crear mi idea</a>
+        </div>
+
+        <div class="features">
+          <span>Diseños personalizados</span>
+          <span>Detalles originales</span>
+          <span>Hecho a pedido</span>
+        </div>
+      </div>
+
+      <div class="hero-logo">
+        <div class="logo-frame">
+          <img src="logo.jpeg.jpg" alt="AD NovaTech 3D Studio">
+        </div>
+      </div>
+    </div>
+
+    <div class="container home-buy" id="como-comprar">
+      <div class="section-head">
+        <span class="eyebrow">FÁCIL Y CLARO</span>
+        <h2>¿Cómo comprar?</h2>
+        <p>
+          Te acompañamos desde la elección de tu producto hasta la
+          coordinación de tu pedido.
+        </p>
+      </div>
+
+      <div class="steps">
+        <article class="step">
+          <div class="step-no">1</div>
+          <h3>Elige tu producto</h3>
+          <p>Explora nuestras creaciones y selecciona las cantidades que necesitas.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-no">2</div>
+          <h3>Revisa tu carrito</h3>
+          <p>Comprueba los productos, las cantidades y el subtotal estimado.</p>
+        </article>
+
+        <article class="step">
+          <div class="step-no">3</div>
+          <h3>Confirma por WhatsApp</h3>
+          <p>Consulta disponibilidad, personalización, despacho y formas de pago.</p>
+        </article>
+      </div>
+
+      <div class="home-message">
+        Gracias por apoyar este emprendimiento y permitirnos convertir tus
+        ideas en creaciones especiales.
+        <span>AD NovaTech 3D Studio · Creamos contigo, pieza por pieza.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTE 2 CONTINÚA AQUÍ -->
+<style>
+/* ===== CATÁLOGO DE PRODUCTOS ===== */
+.products-section {
+  padding: 55px 7%;
+  background: #fbf8f1;
+}
+
+.section-heading {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 35px;
+}
+
+.section-heading h2 {
+  color: #142b49;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 12px;
+}
+
+.section-heading p {
+  color: #626777;
+  line-height: 1.7;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #e9dfce;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 25px rgba(20, 43, 73, .06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-icon {
+  background: #f5eddf;
+  border-radius: 16px;
+  min-height: 130px;
+  display: grid;
+  place-items: center;
+  font-size: 3.5rem;
+}
+
+.product-card h3 {
+  color: #142b49;
+  margin: 4px 0 0;
+}
+
+.product-card p {
+  color: #626777;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.product-price {
+  color: #a57a32 !important;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.stock-count {
+  background: #f8f4ec;
+  border-radius: 9px;
+  padding: 9px 12px;
+  font-size: .9rem;
+}
+
+.stock-count strong {
+  color: #142b49;
+}
+
+.qty-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 6px;
+}
+
+.qty-picker button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #d7c39e;
+  border-radius: 50%;
+  background: #fff;
+  color: #142b49;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.qty-picker output {
+  min-width: 28px;
+  text-align: center;
+  color: #142b49;
+  font-weight: 800;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  border: none;
+  text-decoration: none;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, opacity .2s;
+}
+
+.btn-primary {
+  background: #142b49;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #e9d5ad;
+  color: #142b49;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  opacity: .92;
+}
+
+.product-card .btn-primary {
+  width: 100%;
+  margin-top: auto;
+}
 
 /* ===== PERSONALIZACIÓN ===== */
-.personalize-section{padding:55px 7%;background:#fff}
-.personalize-layout{max-width:1000px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:start}
-.personalize-info{background:#142b49;color:#fff;padding:30px;border-radius:22px}
-.personalize-info h3{font-family:"Playfair Display",serif;font-size:1.8rem;color:#c49a52}
-.personalize-info p,.personalize-info li{line-height:1.8}
-.personalize-form{background:#fbf8f1;border:1px solid #e9dfce;border-radius:22px;padding:28px}
-.form-field{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
-.form-field label{color:#142b49;font-weight:700}
-.form-field input,.form-field select,.form-field textarea{width:100%;padding:13px;border:1px solid #d9d5cc;border-radius:10px;background:#fff;color:#142b49;font:inherit}
-.form-field textarea{min-height:120px;resize:vertical}
-.personalize-form .btn-primary{width:100%}
-#estado-form{color:#142b49;line-height:1.6;margin-top:14px}
+.personalize-section {
+  padding: 55px 7%;
+  background: #fff;
+}
+
+.personalize-layout {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px;
+  align-items: start;
+}
+
+.personalize-info {
+  background: #142b49;
+  color: #fff;
+  padding: 30px;
+  border-radius: 22px;
+}
+
+.personalize-info h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+}
+
+.personalize-info p,
+.personalize-info li {
+  line-height: 1.8;
+}
+
+.personalize-form {
+  background: #fbf8f1;
+  border: 1px solid #e9dfce;
+  border-radius: 22px;
+  padding: 28px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  color: #142b49;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d9d5cc;
+  border-radius: 10px;
+  background: #fff;
+  color: #142b49;
+  font: inherit;
+}
+
+.form-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.personalize-form .btn-primary {
+  width: 100%;
+}
+
+#estado-form {
+  color: #142b49;
+  line-height: 1.6;
+  margin-top: 14px;
+}
 
 /* ===== CARRITO ===== */
-.cart-section{padding:55px 7%;background:#f5eddf}
-.cart-container{max-width:900px;margin:auto;background:#fff;border:1px solid #e9dfce;border-radius:22px;padding:28px}
-.cart-item{display:grid;grid-template-columns:1fr auto;gap:15px;padding:18px 0;border-bottom:1px solid #eee5d7}
-.cart-item h3{margin:0 0 8px;color:#142b49}
-.cart-item p{margin:5px 0;color:#626777}
-.cart-controls{display:flex;align-items:center;gap:10px;margin-top:10px}
-.cart-controls button{width:32px;height:32px;border:1px solid #d7c39e;border-radius:50%;background:#fff;color:#142b49;cursor:pointer;font-size:1.1rem}
-.cart-total{display:flex;justify-content:space-between;gap:15px;padding:22px 0;color:#142b49;font-size:1.3rem;font-weight:800}
-.cart-actions{display:flex;flex-wrap:wrap;gap:12px}
-#estado-carrito{color:#142b49;line-height:1.6;margin-top:16px}
-.empty-cart{color:#626777;text-align:center;padding:24px 0}
+.cart-section {
+  padding: 55px 7%;
+  background: #f5eddf;
+}
 
-/* ===== CONTACTO Y PIE ===== */
-.contact-section{padding:45px 7%;text-align:center;background:#142b49;color:#fff}
-.contact-section h2{font-family:"Playfair Display",serif;font-size:2rem}
-.contact-section p{line-height:1.7}
-.contact-section .btn-secondary{margin-top:12px}
-.site-footer{background:#0c1c30;color:#e9dfce;text-align:center;padding:22px;font-size:.9rem}
+.cart-container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  border: 1px solid #e9dfce;
+  border-radius: 22px;
+  padding: 28px;
+}
 
-/* ===== MÓVILES ===== */
-@media(max-width:900px){
-  .products-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .personalize-layout{grid-template-columns:1fr}
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 15px;
+  padding: 18px 0;
+  border-bottom: 1px solid #eee5d7;
 }
-@media(max-width:850px){
-  .hero-grid{grid-template-columns:1fr;gap:32px}
-  .hero{padding:50px 0}
-  .hero-logo{order:-1}
-  .logo-frame{width:min(80%,330px)}
-  nav{gap:12px;font-size:.82rem}
+
+.cart-item h3 {
+  margin: 0 0 8px;
+  color: #142b49;
 }
-@media(max-width:600px){
-  .products-grid{grid-template-columns:1fr}
-  .products-section,.personalize-section,.cart-section{padding:38px 5%}
-  .product-card,.cart-container,.personalize-form{padding:20px}
-  .cart-item{grid-template-columns:1fr}
-  .cart-actions{flex-direction:column}
-  .cart-actions button{width:100%}
+
+.cart-item p {
+  margin: 5px 0;
+  color: #626777;
 }
-@media(max-width:560px){
-  .nav{padding:12px 0;align-items:flex-start;flex-direction:column;gap:10px}
-  nav{flex-wrap:wrap}
-  .steps{grid-template-columns:1fr}
-  .brand img{width:48px;height:48px}
-}<script>
+
+.cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cart-controls button {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #d7c39e;
+  border-radius: 50%;
+  background: #fff;
+  color: #142b49;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 0;
+  color: #142b49;
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+.cart-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#estado-carrito {
+  color: #142b49;
+  line-height: 1.6;
+  margin-top: 16px;
+}
+
+.empty-cart {
+  color: #626777;
+  text-align: center;
+  padding: 24px 0;
+}
+
+/* ===== CONTACTO Y PIE DE PÁGINA ===== */
+.contact-section {
+  padding: 45px 7%;
+  text-align: center;
+  background: #142b49;
+  color: #fff;
+}
+
+.contact-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
+
+.contact-section p {
+  line-height: 1.7;
+}
+
+.contact-section .btn-secondary {
+  margin-top: 12px;
+}
+
+.site-footer {
+  background: #0c1c30;
+  color: #e9dfce;
+  text-align: center;
+  padding: 22px;
+  font-size: .9rem;
+}
+
+/* ===== ADAPTACIÓN A CELULARES ===== */
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .personalize-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-section,
+  .personalize-section,
+  .cart-section {
+    padding: 38px 5%;
+  }
+
+  .product-card,
+  .cart-container,
+  .personalize-form {
+    padding: 20px;
+  }
+
+  .cart-item {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-actions {
+    flex-direction: column;
+  }
+
+  .cart-actions button {
+    width: 100%;
+  }
+}
+</style>
+
+<!-- ===== SECCIÓN PRODUCTOS ===== -->
+<section id="productos" class="products-section">
+  <div class="section-heading">
+    <h2>Nuestras creaciones 3D ✨</h2>
+    <p>
+      Descubre nuestros productos impresos en 3D.
+      Elige las cantidades y agrega tus favoritos al carrito.
+      Puedes seleccionar hasta 99 unidades de cada modelo.
+    </p>
+  </div>
+
+  <div class="products-grid">
+
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">🌸</div>
+      <h3>Figura decorativa</h3>
+      <p>Una pieza especial para decorar tus espacios.</p>
+      <p class="product-price">$4.990 CLP</p>
+      <p class="stock-count">En tu carrito: <strong id="en-carrito-figura">0</strong> unidades</p>
+      <div class="qty-picker">
+        <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
+        <output aria-label="Cantidad seleccionada">1</output>
+        <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
+      </div>
+      <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'figura','Figura decorativa',4990)">Agregar al carrito</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">🔑</div>
+      <h3>Llavero personalizado</h3>
+      <p>Un pequeño detalle con tu estilo o nombre.</p>
+      <p class="product-price">$1.990 CLP</p>
+      <p class="stock-count">En tu carrito: <strong id="en-carrito-llavero">0</strong> unidades</p>
+      <div class="qty-picker">
+        <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
+        <output aria-label="Cantidad seleccionada">1</output>
+        <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
+      </div>
+      <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'llavero','Llavero personalizado',1990)">Agregar al carrito</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">⭐</div>
+      <h3>Adorno decorativo</h3>
+      <p>Un detalle creativo para tu hogar o escritorio.</p>
+      <p class="product-price">$3.990 CLP</p>
+      <p class="stock-count">En tu carrito: <strong id="en-carrito-adorno">0</strong> unidades</p>
+      <div class="qty-picker">
+        <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
+        <output aria-label="Cantidad seleccionada">1</output>
+        <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
+      </div>
+      <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'adorno','Adorno decorativo',3990)">Agregar al carrito</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">🔠</div>
+      <h3>Nombre en 3D</h3>
+      <p>Personaliza tu espacio con nombres y diseños especiales.</p>
+      <p class="product-price">$3.490 CLP</p>
+      <p class="stock-count">En tu carrito: <strong id="en-carrito-nombre3d">0</strong> unidades</p>
+      <div class="qty-picker">
+        <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
+        <output aria-label="Cantidad seleccionada">1</output>
+        <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
+      </div>
+      <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'nombre3d','Nombre en 3D',3490)">Agregar al carrito</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">🎁</div>
+      <h3>Detalle para regalar</h3>
+      <p>Una idea diferente para sorprender a alguien especial.</p>
+      <p class="product-price">$2.990 CLP</p>
+      <p class="stock-count">En tu carrito: <strong id="en-carrito-regalo">0</strong> unidades</p>
+      <div class="qty-picker">
+        <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
+        <output aria-label="Cantidad seleccionada">1</output>
+        <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
+      </div>
+      <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'regalo','Detalle para regalar',2990)">Agregar al carrito</button>
+    </article>
+
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">💡</div>
+      <h3>¿Tienes otra idea?</h3>
+      <p>Cuéntanos qué quieres imprimir y revisaremos si podemos fabricarlo.</p>
+      <a class="btn-primary" href="#personalizacion">Solicitar cotización</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ===== SECCIÓN PERSONALIZACIÓN ===== -->
+<section id="personalizacion" class="personalize-section">
+  <div class="section-heading">
+    <h2>Personaliza tu creación 💫</h2>
+    <p>Cuéntanos qué tienes en mente y conversemos sobre tu idea.</p>
+  </div>
+
+  <div class="personalize-layout">
+    <div class="personalize-info">
+      <h3>Tu idea, hecha en 3D</h3>
+      <p>Podemos revisar contigo detalles como el diseño, tamaño, colores y cantidad.</p>
+      <ul>
+        <li>Cuéntanos qué producto necesitas.</li>
+        <li>Indica el tamaño aproximado y los colores.</li>
+        <li>Te contactaremos por WhatsApp para revisar la solicitud.</li>
+      </ul>
+      <p><strong>Importante:</strong> las solicitudes personalizadas se cotizan antes de confirmar el pedido.</p>
+    </div>
+
+    <form id="form-cotizacion" class="personalize-form">
+      <div class="form-field">
+        <label for="cliente">Tu nombre</label>
+        <input id="cliente" name="cliente" type="text" placeholder="Escribe tu nombre" required>
+      </div>
+
+      <div class="form-field">
+        <label for="tipo">¿Qué te gustaría imprimir?</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecciona una opción</option>
+          <option>Figura decorativa</option>
+          <option>Llavero personalizado</option>
+          <option>Nombre en 3D</option>
+          <option>Adorno decorativo</option>
+          <option>Otro diseño personalizado</option>
+        </select>
+      </div>
+
+      <div class="form-field">
+        <label for="detalles">Detalles de tu idea</label>
+        <textarea id="detalles" name="detalles" placeholder="Cuéntanos tamaño, colores, cantidad y cualquier detalle importante." required></textarea>
+      </div>
+
+      <button class="btn-primary" type="submit">Enviar solicitud por WhatsApp</button>
+      <p id="estado-form" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== SECCIÓN CARRITO ===== -->
+<section id="carrito" class="cart-section">
+  <div class="section-heading">
+    <h2>Tu carrito 🛒</h2>
+    <p>Revisa los productos y cantidades antes de enviar tu pedido.</p>
+  </div>
+
+  <div class="cart-container">
+    <div id="lista-carrito">
+      <p class="empty-cart">Tu carrito está vacío por ahora.</p>
+    </div>
+
+    <div class="cart-total">
+      <span>Subtotal</span>
+      <span id="total">$0</span>
+    </div>
+
+    <div class="cart-actions">
+      <button class="btn-secondary" type="button" onclick="vaciar()">Vaciar carrito</button>
+      <button class="btn-primary" type="button" onclick="pedido()">Continuar por WhatsApp</button>
+    </div>
+
+    <p id="estado-carrito" role="status" aria-live="polite"></p>
+    <p>El pedido se coordina por WhatsApp. El envío y el método de pago se confirman directamente antes de finalizar la compra.</p>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="contact-section">
+  <h2>¿Hablamos de tu idea? ✨</h2>
+  <p>AD NovaTech 3D Studio</p>
+  <p>Consultas, pedidos y cotizaciones personalizadas.</p>
+  <a class="btn-secondary" href="https://wa.me/56977286221" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
+</section>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> AD NovaTech 3D Studio. Creando ideas en 3D.</p>
+</footer>
+
+<!-- PARTE 3 CONTINÚA AQUÍ -->
+<script>
+/* ==========================================
+   AD NOVATECH 3D STUDIO
+   PARTE 3: FUNCIONES Y CARRITO
+   ========================================== */
+
 const LIMITE_POR_MODELO = 99;
 const NUMERO_WHATSAPP = "56977286221";
 
@@ -231,6 +1183,11 @@ const clp = numero =>
     currency: "CLP",
     maximumFractionDigits: 0
   }).format(numero);
+
+
+/* ==========================================
+   NAVEGACIÓN ENTRE SECCIONES
+   ========================================== */
 
 function mostrarSeccion(id, actualizarHash = true) {
   const destino = document.getElementById(id);
@@ -289,6 +1246,11 @@ function iniciarNavegacion() {
   if (anio) anio.textContent = new Date().getFullYear();
 }
 
+
+/* ==========================================
+   SELECTOR DE CANTIDAD EN PRODUCTOS
+   ========================================== */
+
 function cantidadProducto(boton, cambio) {
   const selector = boton.closest(".qty-picker");
   if (!selector) return;
@@ -301,6 +1263,11 @@ function cantidadProducto(boton, cambio) {
     Math.min(LIMITE_POR_MODELO, actual + cambio)
   );
 }
+
+
+/* ==========================================
+   AGREGAR PRODUCTOS AL CARRITO
+   ========================================== */
 
 function agregar(id, nombre, precio, cantidad = 1) {
   const unidades = Math.floor(Number(cantidad));
@@ -322,26 +1289,33 @@ function agregar(id, nombre, precio, cantidad = 1) {
 
   if (cantidadActual + unidades > LIMITE_POR_MODELO) {
     document.getElementById("estado-carrito").textContent =
-      "El máximo es de 99 unidades por modelo.";
+      "El máximo es de 99 unidades por modelo. Ya tienes " +
+      cantidadActual + " unidades de " + nombre + ".";
     return false;
   }
 
   if (existente) {
     existente.cantidad += unidades;
   } else {
-    carrito.push({ id, nombre, precio, cantidad: unidades });
+    carrito.push({
+      id,
+      nombre,
+      precio,
+      cantidad: unidades
+    });
   }
 
   renderCarrito();
 
   document.getElementById("estado-carrito").textContent =
-    nombre + " agregado al carrito.";
+    nombre + " agregado al carrito. Máximo: 99 unidades por modelo.";
 
   return true;
 }
 
 function agregarSeleccionado(boton, id, nombre, precio) {
   const selector = boton.parentElement.querySelector(".qty-picker");
+
   if (!selector) return;
 
   const salida = selector.querySelector("output");
@@ -352,11 +1326,19 @@ function agregarSeleccionado(boton, id, nombre, precio) {
   }
 }
 
+
+/* ==========================================
+   MODIFICAR Y VACIAR CARRITO
+   ========================================== */
+
 function cambiar(id, cambio) {
   const producto = carrito.find(item => item.id === id);
   if (!producto) return;
 
-  if (cambio > 0 && producto.cantidad >= LIMITE_POR_MODELO) {
+  if (
+    cambio > 0 &&
+    producto.cantidad >= LIMITE_POR_MODELO
+  ) {
     document.getElementById("estado-carrito").textContent =
       "Ya alcanzaste el máximo de 99 unidades de este modelo.";
     return;
@@ -382,6 +1364,11 @@ function vaciar() {
     "Tu carrito está vacío.";
 }
 
+
+/* ==========================================
+   ACTUALIZAR LA VISTA DEL CARRITO
+   ========================================== */
+
 function renderCarrito() {
   const lista = document.getElementById("lista-carrito");
   const totalElemento = document.getElementById("total");
@@ -392,24 +1379,33 @@ function renderCarrito() {
   lista.replaceChildren();
 
   const unidadesTotales = carrito.reduce(
-    (suma, producto) => suma + producto.cantidad, 0
+    (suma, producto) => suma + producto.cantidad,
+    0
   );
 
   const subtotal = carrito.reduce(
-    (suma, producto) => suma + producto.precio * producto.cantidad, 0
+    (suma, producto) =>
+      suma + producto.precio * producto.cantidad,
+    0
   );
 
   contador.textContent = unidadesTotales;
   totalElemento.textContent = clp(subtotal);
 
+  /* Mostrar las cantidades de cada producto en su tarjeta */
   productos.forEach(producto => {
     const indicador = document.getElementById(
       "en-carrito-" + producto.id
     );
 
     if (indicador) {
-      const agregado = carrito.find(item => item.id === producto.id);
-      indicador.textContent = agregado ? agregado.cantidad : 0;
+      const agregado = carrito.find(
+        item => item.id === producto.id
+      );
+
+      indicador.textContent = agregado
+        ? agregado.cantidad
+        : 0;
     }
   });
 
@@ -426,15 +1422,18 @@ function renderCarrito() {
     articulo.className = "cart-item";
 
     const informacion = document.createElement("div");
+
     const titulo = document.createElement("h3");
     titulo.textContent = producto.nombre;
 
     const detalle = document.createElement("p");
-    detalle.textContent = clp(producto.precio) + " por unidad";
+    detalle.textContent =
+      clp(producto.precio) + " por unidad";
 
     const subtotalProducto = document.createElement("p");
     subtotalProducto.textContent =
-      "Subtotal: " + clp(producto.precio * producto.cantidad);
+      "Subtotal: " +
+      clp(producto.precio * producto.cantidad);
 
     const controles = document.createElement("div");
     controles.className = "cart-controls";
@@ -442,7 +1441,13 @@ function renderCarrito() {
     const restar = document.createElement("button");
     restar.type = "button";
     restar.textContent = "−";
-    restar.addEventListener("click", () => cambiar(producto.id, -1));
+    restar.setAttribute(
+      "aria-label",
+      "Restar una unidad de " + producto.nombre
+    );
+    restar.addEventListener("click", () => {
+      cambiar(producto.id, -1);
+    });
 
     const cantidad = document.createElement("strong");
     cantidad.textContent = producto.cantidad + " unidades";
@@ -450,18 +1455,39 @@ function renderCarrito() {
     const sumar = document.createElement("button");
     sumar.type = "button";
     sumar.textContent = "+";
-    sumar.addEventListener("click", () => cambiar(producto.id, 1));
+    sumar.setAttribute(
+      "aria-label",
+      "Agregar una unidad de " + producto.nombre
+    );
+    sumar.addEventListener("click", () => {
+      cambiar(producto.id, 1);
+    });
 
     controles.append(restar, cantidad, sumar);
-    informacion.append(titulo, detalle, subtotalProducto, controles);
+
+    informacion.append(
+      titulo,
+      detalle,
+      subtotalProducto,
+      controles
+    );
+
     articulo.appendChild(informacion);
     lista.appendChild(articulo);
   });
 }
 
+
+/* ==========================================
+   ENVIAR PEDIDO POR WHATSAPP
+   ========================================== */
+
 function abrirWhatsApp(mensaje) {
-  const url = "https://wa.me/" + NUMERO_WHATSAPP +
-    "?text=" + encodeURIComponent(mensaje);
+  const url =
+    "https://wa.me/" +
+    NUMERO_WHATSAPP +
+    "?text=" +
+    encodeURIComponent(mensaje);
 
   window.open(url, "_blank", "noopener,noreferrer");
 }
@@ -474,12 +1500,15 @@ function pedido() {
   }
 
   const lineas = carrito.map(producto =>
-    "• " + producto.nombre + " x " + producto.cantidad +
+    "• " + producto.nombre +
+    " x " + producto.cantidad +
     " = " + clp(producto.precio * producto.cantidad)
   );
 
   const subtotal = carrito.reduce(
-    (suma, producto) => suma + producto.precio * producto.cantidad, 0
+    (suma, producto) =>
+      suma + producto.precio * producto.cantidad,
+    0
   );
 
   const mensaje = [
@@ -499,6 +1528,11 @@ function pedido() {
   abrirWhatsApp(mensaje);
 }
 
+
+/* ==========================================
+   FORMULARIO DE COTIZACIÓN PERSONALIZADA
+   ========================================== */
+
 function iniciarFormulario() {
   const formulario = document.getElementById("form-cotizacion");
   if (!formulario) return;
@@ -512,7 +1546,8 @@ function iniciarFormulario() {
     const estado = document.getElementById("estado-form");
 
     if (!nombre || !tipo || !detalles) {
-      estado.textContent = "Completa todos los campos antes de enviar.";
+      estado.textContent =
+        "Completa todos los campos antes de enviar.";
       return;
     }
 
@@ -526,10 +1561,17 @@ function iniciarFormulario() {
       "Detalles: " + detalles
     ].join("\n");
 
-    estado.textContent = "Abriendo WhatsApp para enviar tu solicitud…";
+    estado.textContent =
+      "Abriendo WhatsApp para enviar tu solicitud…";
+
     abrirWhatsApp(mensaje);
   });
 }
+
+
+/* ==========================================
+   INICIALIZACIÓN
+   ========================================== */
 
 iniciarNavegacion();
 iniciarFormulario();
@@ -537,3 +1579,5 @@ renderCarrito();
 </script>
 </body>
 </html>
+
+
