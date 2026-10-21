@@ -145,10 +145,16 @@ h3 {
 
 /* PESTAÑAS: SOLO SE MUESTRA LA SECCIÓN ACTIVA */
 main > section {
+  display: block;
+}
+
+/* Con JavaScript activo se muestra solo la sección seleccionada.
+   Sin JavaScript, el catálogo y el carrito siguen visibles. */
+.js-navigation main > section {
   display: none;
 }
 
-main > section.active-section {
+.js-navigation main > section.active-section {
   display: block;
 }
 
@@ -602,7 +608,8 @@ section {
       </div>
     </div>
   </section>
-    <!-- PARTE 2: CATÁLOGO Y ESTILOS -->
+
+  <!-- PARTE 2 CONTINÚA AQUÍ -->
 <style>
 /* ===== CATÁLOGO DE PRODUCTOS ===== */
 .products-section {
@@ -898,6 +905,84 @@ section {
   margin-top: 16px;
 }
 
+/* Datos de despacho: estilos limitados al carrito */
+.cart-shipping-note {
+  margin: 8px 0 24px;
+  padding: 15px 18px;
+  border: 1px solid #d8c18f;
+  border-radius: 12px;
+  background: #fbf8f1;
+  color: #142b49;
+  line-height: 1.65;
+}
+
+.cart-shipping-note strong {
+  color: #a57a32;
+}
+
+.cart-customer-details {
+  margin: 22px 0;
+  padding: 22px;
+  border: 1px solid #e9dfce;
+  border-radius: 14px;
+  background: #fffdf9;
+}
+
+.cart-customer-details h3 {
+  margin: 0 0 16px;
+  color: #142b49;
+}
+
+.cart-customer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.cart-customer-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.cart-customer-field.full-width {
+  grid-column: 1 / -1;
+}
+
+.cart-customer-field label {
+  color: #142b49;
+  font-weight: 700;
+  font-size: .92rem;
+}
+
+.cart-customer-field input,
+.cart-customer-field textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d9d5cc;
+  border-radius: 9px;
+  background: #fff;
+  color: #142b49;
+  font: inherit;
+}
+
+.cart-customer-field textarea {
+  min-height: 82px;
+  resize: vertical;
+}
+
+.cart-thank-you {
+  margin: 26px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid #e9dfce;
+  text-align: center;
+  color: #a57a32;
+  font-family: "Playfair Display", serif;
+  font-size: 1.12rem;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
 .empty-cart {
   color: #626777;
   text-align: center;
@@ -965,6 +1050,14 @@ section {
     grid-template-columns: 1fr;
   }
 
+  .cart-customer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-customer-field.full-width {
+    grid-column: auto;
+  }
+
   .cart-actions {
     flex-direction: column;
   }
@@ -984,11 +1077,6 @@ section {
       Elige las cantidades y agrega tus favoritos al carrito.
       Puedes seleccionar hasta 99 unidades de cada modelo.
     </p>
-
-    <!-- ÚNICO CAMBIO: AVISO DE ENVÍO GRATIS -->
-    <div style="margin:20px auto 0; padding:14px 18px; max-width:600px; text-align:center; background:#f5eddf; border:1px solid #c49a52; border-radius:12px; color:#17243c; font-weight:700;">
-      🚚 ¡Envío gratis en compras desde $30.000 CLP!
-    </div>
   </div>
 
   <div class="products-grid">
@@ -1001,7 +1089,7 @@ section {
       <p class="stock-count">En tu carrito: <strong id="en-carrito-figura">0</strong> unidades</p>
       <div class="qty-picker">
         <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
-        <output>1</output>
+        <output aria-label="Cantidad seleccionada">1</output>
         <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
       </div>
       <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'figura','Figura decorativa',4990)">Agregar al carrito</button>
@@ -1010,26 +1098,26 @@ section {
     <article class="product-card">
       <div class="product-icon" aria-hidden="true">🔑</div>
       <h3>Llavero personalizado</h3>
-      <p>Un detalle único con tu nombre o diseño favorito.</p>
+      <p>Un pequeño detalle con tu estilo o nombre.</p>
       <p class="product-price">$1.990 CLP</p>
       <p class="stock-count">En tu carrito: <strong id="en-carrito-llavero">0</strong> unidades</p>
       <div class="qty-picker">
         <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
-        <output>1</output>
+        <output aria-label="Cantidad seleccionada">1</output>
         <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
       </div>
       <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'llavero','Llavero personalizado',1990)">Agregar al carrito</button>
     </article>
 
     <article class="product-card">
-      <div class="product-icon" aria-hidden="true">🏠</div>
+      <div class="product-icon" aria-hidden="true">⭐</div>
       <h3>Adorno decorativo</h3>
-      <p>Una creación especial para dar personalidad a tus espacios.</p>
+      <p>Un detalle creativo para tu hogar o escritorio.</p>
       <p class="product-price">$3.990 CLP</p>
       <p class="stock-count">En tu carrito: <strong id="en-carrito-adorno">0</strong> unidades</p>
       <div class="qty-picker">
         <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
-        <output>1</output>
+        <output aria-label="Cantidad seleccionada">1</output>
         <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
       </div>
       <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'adorno','Adorno decorativo',3990)">Agregar al carrito</button>
@@ -1038,12 +1126,12 @@ section {
     <article class="product-card">
       <div class="product-icon" aria-hidden="true">🔠</div>
       <h3>Nombre en 3D</h3>
-      <p>Nombres personalizados para decorar o regalar.</p>
+      <p>Personaliza tu espacio con nombres y diseños especiales.</p>
       <p class="product-price">$3.490 CLP</p>
       <p class="stock-count">En tu carrito: <strong id="en-carrito-nombre3d">0</strong> unidades</p>
       <div class="qty-picker">
         <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
-        <output>1</output>
+        <output aria-label="Cantidad seleccionada">1</output>
         <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
       </div>
       <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'nombre3d','Nombre en 3D',3490)">Agregar al carrito</button>
@@ -1052,55 +1140,60 @@ section {
     <article class="product-card">
       <div class="product-icon" aria-hidden="true">🎁</div>
       <h3>Detalle para regalar</h3>
-      <p>Un pequeño regalo para una persona especial.</p>
+      <p>Una idea diferente para sorprender a alguien especial.</p>
       <p class="product-price">$2.990 CLP</p>
       <p class="stock-count">En tu carrito: <strong id="en-carrito-regalo">0</strong> unidades</p>
       <div class="qty-picker">
         <button type="button" onclick="cantidadProducto(this,-1)" aria-label="Restar cantidad">−</button>
-        <output>1</output>
+        <output aria-label="Cantidad seleccionada">1</output>
         <button type="button" onclick="cantidadProducto(this,1)" aria-label="Sumar cantidad">+</button>
       </div>
       <button class="btn-primary" type="button" onclick="agregarSeleccionado(this,'regalo','Detalle para regalar',2990)">Agregar al carrito</button>
     </article>
 
+    <article class="product-card">
+      <div class="product-icon" aria-hidden="true">💡</div>
+      <h3>¿Tienes otra idea?</h3>
+      <p>Cuéntanos qué quieres imprimir y revisaremos si podemos fabricarlo.</p>
+      <a class="btn-primary" href="#personalizacion">Solicitar cotización</a>
+    </article>
+
   </div>
-</section> 
-  <!-- ===== SECCIÓN PERSONALIZACIÓN ===== -->
+</section>
+
+<!-- ===== SECCIÓN PERSONALIZACIÓN ===== -->
 <section id="personalizacion" class="personalize-section">
   <div class="section-heading">
-    <h2>Personaliza tu idea ✨</h2>
-    <p>Cuéntanos qué tienes en mente y te ayudaremos a hacerlo realidad.</p>
+    <h2>Personaliza tu creación 💫</h2>
+    <p>Cuéntanos qué tienes en mente y conversemos sobre tu idea.</p>
   </div>
 
   <div class="personalize-layout">
     <div class="personalize-info">
       <h3>Tu idea, hecha en 3D</h3>
-      <p>
-        Creamos productos personalizados según tus preferencias.
-        Cuéntanos los detalles para preparar una cotización.
-      </p>
+      <p>Podemos revisar contigo detalles como el diseño, tamaño, colores y cantidad.</p>
       <ul>
-        <li>Diseños personalizados.</li>
-        <li>Detalles para regalar.</li>
-        <li>Consultas sobre tamaños y colores.</li>
+        <li>Cuéntanos qué producto necesitas.</li>
+        <li>Indica el tamaño aproximado y los colores.</li>
+        <li>Te contactaremos por WhatsApp para revisar la solicitud.</li>
       </ul>
+      <p><strong>Importante:</strong> las solicitudes personalizadas se cotizan antes de confirmar el pedido.</p>
     </div>
 
-    <form class="personalize-form" id="form-cotizacion">
+    <form id="form-cotizacion" class="personalize-form">
       <div class="form-field">
-        <label for="cliente">Nombre</label>
-        <input id="cliente" name="cliente" type="text" required>
+        <label for="cliente">Tu nombre</label>
+        <input id="cliente" name="cliente" type="text" placeholder="Escribe tu nombre" required>
       </div>
 
       <div class="form-field">
-        <label for="tipo">¿Qué te gustaría crear?</label>
+        <label for="tipo">¿Qué te gustaría imprimir?</label>
         <select id="tipo" name="tipo" required>
           <option value="">Selecciona una opción</option>
           <option>Figura decorativa</option>
           <option>Llavero personalizado</option>
-          <option>Adorno decorativo</option>
           <option>Nombre en 3D</option>
-          <option>Detalle para regalar</option>
+          <option>Adorno decorativo</option>
           <option>Otro diseño personalizado</option>
         </select>
       </div>
@@ -1110,9 +1203,7 @@ section {
         <textarea id="detalles" name="detalles" placeholder="Cuéntanos tamaño, colores, cantidad y cualquier detalle importante." required></textarea>
       </div>
 
-      <button class="btn-primary" type="submit">
-        Enviar solicitud por WhatsApp
-      </button>
+      <button class="btn-primary" type="submit">Enviar solicitud por WhatsApp</button>
       <p id="estado-form" role="status" aria-live="polite"></p>
     </form>
   </div>
@@ -1135,69 +1226,42 @@ section {
       <span id="total">$0</span>
     </div>
 
-    <div class="cart-actions">
-      <button class="btn-secondary" type="button" onclick="vaciar()">
-        Vaciar carrito
-      </button>
-      <button class="btn-primary" type="button" onclick="pedido()">
-        Continuar por WhatsApp
-      </button>
+    <div class="cart-shipping-note">
+      <strong>🚚 ¡Envío gratis por compras desde $30.000!</strong><br>
+      Para compras inferiores a $30.000, el costo del envío corre por cuenta del cliente y se confirmará al coordinar el pedido.
     </div>
 
-    <!-- DATOS DEL CLIENTE -->
-    <div style="margin-top:28px; padding-top:24px; border-top:1px solid #e9dfce;">
-      <h3 style="color:#142b49;">📦 Datos para tu pedido</h3>
-      <p style="color:#626777;">
-        Completa tus datos y la dirección donde deseas recibir tu pedido.
-      </p>
-
-      <div class="personalize-form" style="margin-top:18px;">
-        <div class="form-field">
-          <label for="pedido-nombre">Nombre completo *</label>
-          <input id="pedido-nombre" type="text" autocomplete="name" required>
+    <div class="cart-customer-details">
+      <h3>Datos para coordinar tu envío</h3>
+      <div class="cart-customer-grid">
+        <div class="cart-customer-field">
+          <label for="envio-nombre">Nombre y apellido</label>
+          <input id="envio-nombre" name="envio-nombre" type="text" autocomplete="name" placeholder="Tu nombre completo" required>
         </div>
-
-        <div class="form-field">
-          <label for="pedido-correo">Correo electrónico *</label>
-          <input id="pedido-correo" type="email" autocomplete="email" required>
+        <div class="cart-customer-field">
+          <label for="envio-telefono">Número de teléfono</label>
+          <input id="envio-telefono" name="envio-telefono" type="tel" autocomplete="tel" placeholder="Ej. +56 9 1234 5678" required>
         </div>
-
-        <div class="form-field">
-          <label for="pedido-telefono">Teléfono *</label>
-          <input id="pedido-telefono" type="tel" autocomplete="tel" required>
+        <div class="cart-customer-field full-width">
+          <label for="envio-correo">Correo electrónico</label>
+          <input id="envio-correo" name="envio-correo" type="email" autocomplete="email" placeholder="tunombre@correo.cl" required>
         </div>
-
-        <div class="form-field">
-          <label for="pedido-region">Región *</label>
-          <input id="pedido-region" type="text" autocomplete="address-level1" required>
-        </div>
-
-        <div class="form-field">
-          <label for="pedido-comuna">Comuna *</label>
-          <input id="pedido-comuna" type="text" autocomplete="address-level2" required>
-        </div>
-
-        <div class="form-field">
-          <label for="pedido-direccion">Calle y número *</label>
-          <input id="pedido-direccion" type="text" autocomplete="street-address" required>
-        </div>
-
-        <div class="form-field">
-          <label for="pedido-detalle">Casa, departamento u otra referencia</label>
-          <input id="pedido-detalle" type="text" placeholder="Ej.: casa azul, departamento 12">
+        <div class="cart-customer-field full-width">
+          <label for="envio-direccion">Dirección de envío</label>
+          <textarea id="envio-direccion" name="envio-direccion" autocomplete="street-address" placeholder="Calle, número, comuna y región" required></textarea>
         </div>
       </div>
     </div>
 
-    <!-- INFORMACIÓN DE DESPACHO -->
-    <p style="margin-top:20px; padding:16px; background:#f5eddf; border:1px solid #e9dfce; border-radius:12px; color:#142b49; line-height:1.7;">
-      🚚 <strong>Información de despacho</strong><br>
-      En compras desde $30.000 CLP, el envío es gratis.<br>
-      En compras inferiores a $30.000 CLP, el cliente paga el costo del envío.<br>
-      El despacho se coordina antes de confirmar el pedido.
-    </p>
+    <div class="cart-actions">
+      <button class="btn-secondary" type="button" onclick="vaciar()">Vaciar carrito</button>
+      <button class="btn-primary" type="button" onclick="pagarConWebpay()">Pagar con Webpay Plus</button>
+      <button class="btn-secondary" type="button" onclick="pedido()">Continuar por WhatsApp</button>
+    </div>
 
     <p id="estado-carrito" role="status" aria-live="polite"></p>
+    <p>El pago en línea corresponde al subtotal de los productos. Si la compra es inferior a $30.000, el costo del envío se coordinará aparte antes del despacho; desde $30.000 el envío es gratis. También puedes continuar por WhatsApp si prefieres coordinar el pedido.</p>
+    <p class="cart-thank-you">✨ Gracias por apoyar a AD NovaTech 3D Studio. Cada creación nace de una idea y crece gracias a ti. ¡Gracias por ser parte de este sueño! ✨</p>
   </div>
 </section>
 
@@ -1206,15 +1270,14 @@ section {
   <h2>¿Hablamos de tu idea? ✨</h2>
   <p>AD NovaTech 3D Studio</p>
   <p>Consultas, pedidos y cotizaciones personalizadas.</p>
-  <a class="btn-secondary" href="https://wa.me/56977286221" target="_blank" rel="noopener noreferrer">
-    Contactar por WhatsApp
-  </a>
+  <a class="btn-secondary" href="https://wa.me/56977286221" target="_blank" rel="noopener noreferrer">Contactar por WhatsApp</a>
 </section>
 
 <footer class="site-footer">
   <p>© <span id="year"></span> AD NovaTech 3D Studio. Creando ideas en 3D.</p>
-</footer> 
-  <!-- PARTE 3 CONTINÚA AQUÍ -->
+</footer>
+
+<!-- PARTE 3 CONTINÚA AQUÍ -->
 <script>
 /* ==========================================
    AD NOVATECH 3D STUDIO
@@ -1241,9 +1304,12 @@ const clp = numero =>
     maximumFractionDigits: 0
   }).format(numero);
 
+
 /* ==========================================
    NAVEGACIÓN ENTRE SECCIONES
    ========================================== */
+
+document.documentElement.classList.add("js-navigation");
 
 function mostrarSeccion(id, actualizarHash = true) {
   const destino = document.getElementById(id);
@@ -1281,6 +1347,11 @@ document.addEventListener("click", evento => {
   mostrarSeccion(id);
 });
 
+window.addEventListener("hashchange", () => {
+  const id = window.location.hash.slice(1);
+  if (id && document.getElementById(id)) mostrarSeccion(id, false);
+});
+
 function iniciarNavegacion() {
   const idInicial = window.location.hash.slice(1);
   const destino = document.getElementById(idInicial);
@@ -1302,6 +1373,7 @@ function iniciarNavegacion() {
   if (anio) anio.textContent = new Date().getFullYear();
 }
 
+
 /* ==========================================
    SELECTOR DE CANTIDAD EN PRODUCTOS
    ========================================== */
@@ -1317,4 +1389,422 @@ function cantidadProducto(boton, cambio) {
     1,
     Math.min(LIMITE_POR_MODELO, actual + cambio)
   );
-} 
+}
+
+
+/* ==========================================
+   AGREGAR PRODUCTOS AL CARRITO
+   ========================================== */
+
+function agregar(id, nombre, precio, cantidad = 1) {
+  const unidades = Math.floor(Number(cantidad));
+
+  if (!Number.isFinite(unidades) || unidades < 1) {
+    document.getElementById("estado-carrito").textContent =
+      "Selecciona una cantidad válida.";
+    return false;
+  }
+
+  if (unidades > LIMITE_POR_MODELO) {
+    document.getElementById("estado-carrito").textContent =
+      "Puedes seleccionar hasta 99 unidades por modelo.";
+    return false;
+  }
+
+  const existente = carrito.find(producto => producto.id === id);
+  const cantidadActual = existente ? existente.cantidad : 0;
+
+  if (cantidadActual + unidades > LIMITE_POR_MODELO) {
+    document.getElementById("estado-carrito").textContent =
+      "El máximo es de 99 unidades por modelo. Ya tienes " +
+      cantidadActual + " unidades de " + nombre + ".";
+    return false;
+  }
+
+  if (existente) {
+    existente.cantidad += unidades;
+  } else {
+    carrito.push({
+      id,
+      nombre,
+      precio,
+      cantidad: unidades
+    });
+  }
+
+  renderCarrito();
+
+  document.getElementById("estado-carrito").textContent =
+    nombre + " agregado al carrito. Máximo: 99 unidades por modelo.";
+
+  return true;
+}
+
+function agregarSeleccionado(boton, id, nombre, precio) {
+  const selector = boton.parentElement.querySelector(".qty-picker");
+
+  if (!selector) return;
+
+  const salida = selector.querySelector("output");
+  const cantidad = Number(salida.textContent) || 1;
+
+  if (agregar(id, nombre, precio, cantidad)) {
+    salida.textContent = "1";
+  }
+}
+
+
+/* ==========================================
+   MODIFICAR Y VACIAR CARRITO
+   ========================================== */
+
+function cambiar(id, cambio) {
+  const producto = carrito.find(item => item.id === id);
+  if (!producto) return;
+
+  if (
+    cambio > 0 &&
+    producto.cantidad >= LIMITE_POR_MODELO
+  ) {
+    document.getElementById("estado-carrito").textContent =
+      "Ya alcanzaste el máximo de 99 unidades de este modelo.";
+    return;
+  }
+
+  producto.cantidad += cambio;
+
+  if (producto.cantidad <= 0) {
+    const indice = carrito.findIndex(item => item.id === id);
+    if (indice !== -1) carrito.splice(indice, 1);
+  }
+
+  renderCarrito();
+  document.getElementById("estado-carrito").textContent =
+    "Carrito actualizado.";
+}
+
+function vaciar() {
+  carrito.length = 0;
+  renderCarrito();
+
+  document.getElementById("estado-carrito").textContent =
+    "Tu carrito está vacío.";
+}
+
+
+/* ==========================================
+   ACTUALIZAR LA VISTA DEL CARRITO
+   ========================================== */
+
+function renderCarrito() {
+  const lista = document.getElementById("lista-carrito");
+  const totalElemento = document.getElementById("total");
+  const contador = document.getElementById("contador");
+
+  if (!lista || !totalElemento || !contador) return;
+
+  lista.replaceChildren();
+
+  const unidadesTotales = carrito.reduce(
+    (suma, producto) => suma + producto.cantidad,
+    0
+  );
+
+  const subtotal = carrito.reduce(
+    (suma, producto) =>
+      suma + producto.precio * producto.cantidad,
+    0
+  );
+
+  contador.textContent = unidadesTotales;
+  totalElemento.textContent = clp(subtotal);
+
+  /* Mostrar las cantidades de cada producto en su tarjeta */
+  productos.forEach(producto => {
+    const indicador = document.getElementById(
+      "en-carrito-" + producto.id
+    );
+
+    if (indicador) {
+      const agregado = carrito.find(
+        item => item.id === producto.id
+      );
+
+      indicador.textContent = agregado
+        ? agregado.cantidad
+        : 0;
+    }
+  });
+
+  if (carrito.length === 0) {
+    const mensaje = document.createElement("p");
+    mensaje.className = "empty-cart";
+    mensaje.textContent = "Tu carrito está vacío por ahora.";
+    lista.appendChild(mensaje);
+    return;
+  }
+
+  carrito.forEach(producto => {
+    const articulo = document.createElement("article");
+    articulo.className = "cart-item";
+
+    const informacion = document.createElement("div");
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = producto.nombre;
+
+    const detalle = document.createElement("p");
+    detalle.textContent =
+      clp(producto.precio) + " por unidad";
+
+    const subtotalProducto = document.createElement("p");
+    subtotalProducto.textContent =
+      "Subtotal: " +
+      clp(producto.precio * producto.cantidad);
+
+    const controles = document.createElement("div");
+    controles.className = "cart-controls";
+
+    const restar = document.createElement("button");
+    restar.type = "button";
+    restar.textContent = "−";
+    restar.setAttribute(
+      "aria-label",
+      "Restar una unidad de " + producto.nombre
+    );
+    restar.addEventListener("click", () => {
+      cambiar(producto.id, -1);
+    });
+
+    const cantidad = document.createElement("strong");
+    cantidad.textContent = producto.cantidad + " unidades";
+
+    const sumar = document.createElement("button");
+    sumar.type = "button";
+    sumar.textContent = "+";
+    sumar.setAttribute(
+      "aria-label",
+      "Agregar una unidad de " + producto.nombre
+    );
+    sumar.addEventListener("click", () => {
+      cambiar(producto.id, 1);
+    });
+
+    controles.append(restar, cantidad, sumar);
+
+    informacion.append(
+      titulo,
+      detalle,
+      subtotalProducto,
+      controles
+    );
+
+    articulo.appendChild(informacion);
+    lista.appendChild(articulo);
+  });
+}
+
+
+/* ==========================================
+   ENVIAR PEDIDO POR WHATSAPP
+   ========================================== */
+
+function abrirWhatsApp(mensaje) {
+  const url =
+    "https://wa.me/" +
+    NUMERO_WHATSAPP +
+    "?text=" +
+    encodeURIComponent(mensaje);
+
+  window.open(url, "_blank", "noopener,noreferrer");
+}
+
+function pedido() {
+  if (carrito.length === 0) {
+    document.getElementById("estado-carrito").textContent =
+      "Agrega al menos un producto antes de continuar.";
+    return;
+  }
+
+  const nombreEnvio = document.getElementById("envio-nombre").value.trim();
+  const telefonoEnvio = document.getElementById("envio-telefono").value.trim();
+  const correoEnvio = document.getElementById("envio-correo").value.trim();
+  const direccionEnvio = document.getElementById("envio-direccion").value.trim();
+  const estado = document.getElementById("estado-carrito");
+
+  if (!nombreEnvio || !telefonoEnvio || !correoEnvio || !direccionEnvio) {
+    estado.textContent =
+      "Completa tu nombre, teléfono, correo y dirección para continuar con el pedido.";
+    return;
+  }
+
+  const campoCorreo = document.getElementById("envio-correo");
+  if (!campoCorreo.checkValidity()) {
+    estado.textContent = "Revisa que el correo electrónico esté escrito correctamente.";
+    campoCorreo.focus();
+    return;
+  }
+
+  const lineas = carrito.map(producto =>
+    "• " + producto.nombre +
+    " x " + producto.cantidad +
+    " = " + clp(producto.precio * producto.cantidad)
+  );
+
+  const subtotal = carrito.reduce(
+    (suma, producto) =>
+      suma + producto.precio * producto.cantidad,
+    0
+  );
+
+  const mensajeEnvio = subtotal >= 30000
+    ? "Envío: GRATIS (compra desde $30.000)"
+    : "Envío: a cargo del cliente (costo por confirmar)";
+
+  const mensaje = [
+    "¡Hola, AD NovaTech 3D Studio! ✨",
+    "",
+    "Quiero consultar por este pedido:",
+    "",
+    ...lineas,
+    "",
+    "Subtotal de productos: " + clp(subtotal),
+    mensajeEnvio,
+    "",
+    "DATOS PARA EL ENVÍO",
+    "Nombre: " + nombreEnvio,
+    "Teléfono: " + telefonoEnvio,
+    "Correo: " + correoEnvio,
+    "Dirección: " + direccionEnvio,
+    "",
+    "Por favor, confirmen disponibilidad y método de pago.",
+    "",
+    "Gracias."
+  ].join("\n");
+
+  abrirWhatsApp(mensaje);
+}
+
+
+
+/* ==========================================
+   WEBPAY PLUS — requiere backend publicado
+   ========================================== */
+const WEBPAY_API_BASE = "https://adnovatech-webpay-backend.vercel.app";
+
+async function pagarConWebpay() {
+  const estado = document.getElementById("estado-carrito");
+  if (carrito.length === 0) {
+    estado.textContent = "Agrega al menos un producto antes de pagar.";
+    return;
+  }
+  const nombre = document.getElementById("envio-nombre").value.trim();
+  const telefono = document.getElementById("envio-telefono").value.trim();
+  const correo = document.getElementById("envio-correo").value.trim();
+  const direccion = document.getElementById("envio-direccion").value.trim();
+  const campoCorreo = document.getElementById("envio-correo");
+  if (!nombre || !telefono || !correo || !direccion) {
+    estado.textContent = "Completa tu nombre, teléfono, correo y dirección antes de pagar.";
+    return;
+  }
+  if (!campoCorreo.checkValidity()) {
+    estado.textContent = "Revisa que el correo electrónico esté escrito correctamente.";
+    campoCorreo.focus();
+    return;
+  }
+  if (WEBPAY_API_BASE.includes("REEMPLAZAR-POR-TU-BACKEND")) {
+    estado.textContent = "Webpay está preparado en la página, pero falta publicar y configurar el backend seguro. No se ha iniciado ningún cobro.";
+    return;
+  }
+  const boton = document.querySelector('button[onclick="pagarConWebpay()"]');
+  if (boton) { boton.disabled = true; boton.textContent = "Conectando con Webpay…"; }
+  estado.textContent = "Preparando el pago seguro…";
+  try {
+    const respuesta = await fetch(WEBPAY_API_BASE.replace(/\/$/, "") + "/api/webpay/create", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        items: carrito.map(p => ({ id: p.id, quantity: p.cantidad })),
+        customer: { nombre, telefono, correo, direccion }
+      })
+    });
+    const datos = await respuesta.json();
+    if (!respuesta.ok || !datos.url || !datos.token) throw new Error(datos.error || "No fue posible iniciar el pago.");
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = datos.url;
+    const token = document.createElement("input");
+    token.type = "hidden"; token.name = "token_ws"; token.value = datos.token;
+    form.appendChild(token); document.body.appendChild(form); form.submit();
+  } catch (error) {
+    estado.textContent = "No pudimos iniciar Webpay. No se ha confirmado ningún cobro. " + (error.message || "Intenta nuevamente o continúa por WhatsApp.");
+    if (boton) { boton.disabled = false; boton.textContent = "Pagar con Webpay Plus"; }
+  }
+}
+
+function mostrarResultadoWebpay() {
+  const params = new URLSearchParams(window.location.search);
+  const pago = params.get("pago");
+  if (!pago) return;
+  const estado = document.getElementById("estado-carrito");
+  if (pago === "aprobado") {
+    estado.textContent = "Transbank informó que el pago fue aprobado. Conserva tu número de orden: " + (params.get("orden") || "");
+    window.history.replaceState({}, "", window.location.pathname + "#carrito");
+    mostrarSeccion("carrito", false);
+  } else if (pago === "rechazado") {
+    estado.textContent = "El pago no fue aprobado o no se completó. No vuelvas a pagar sin revisar primero el estado de la transacción.";
+    mostrarSeccion("carrito", false);
+  }
+}
+
+/* ==========================================
+   FORMULARIO DE COTIZACIÓN PERSONALIZADA
+   ========================================== */
+
+function iniciarFormulario() {
+  const formulario = document.getElementById("form-cotizacion");
+  if (!formulario) return;
+
+  formulario.addEventListener("submit", evento => {
+    evento.preventDefault();
+
+    const nombre = document.getElementById("cliente").value.trim();
+    const tipo = document.getElementById("tipo").value;
+    const detalles = document.getElementById("detalles").value.trim();
+    const estado = document.getElementById("estado-form");
+
+    if (!nombre || !tipo || !detalles) {
+      estado.textContent =
+        "Completa todos los campos antes de enviar.";
+      return;
+    }
+
+    const mensaje = [
+      "¡Hola, AD NovaTech 3D Studio! ✨",
+      "",
+      "Quiero solicitar una cotización personalizada.",
+      "",
+      "Nombre: " + nombre,
+      "Producto: " + tipo,
+      "Detalles: " + detalles
+    ].join("\n");
+
+    estado.textContent =
+      "Abriendo WhatsApp para enviar tu solicitud…";
+
+    abrirWhatsApp(mensaje);
+  });
+}
+
+
+/* ==========================================
+   INICIALIZACIÓN
+   ========================================== */
+
+iniciarNavegacion();
+iniciarFormulario();
+renderCarrito();
+mostrarResultadoWebpay();
+</script>
+</body>
+</html>
