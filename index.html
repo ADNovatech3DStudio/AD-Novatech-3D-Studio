@@ -4,81 +4,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#102747">
-  <meta name="description" content="AD NovaTech 3D Studio desarrolla productos personalizados mediante impresión 3D y ofrece soluciones de soporte tecnológico.">
-  <title>AD NovaTech 3D Studio | Diseño e impresión 3D</title>
+  <meta name="theme-color" content="#17243c">
+  <meta name="description" content="AD NovaTech 3D Studio: impresiones 3D, regalos y productos personalizados.">
+  <title>AD NovaTech 3D Studio | Impresión 3D personalizada</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --azul: #102747;
-      --azul-medio: #1b416b;
-      --dorado: #c99a45;
-      --dorado-claro: #ead6b1;
-      --crema: #f7f1e8;
-      --blanco: #fffdf9;
-      --texto: #27364a;
-      --gris: #657184;
-      --borde: #e5d6bd;
+      --navy: #17243c;
+      --navy-light: #253957;
+      --gold: #c49a52;
+      --cream: #fbf8f2;
+      --white: #ffffff;
+      --pink: #f3e4e5;
+      --text: #333847;
+      --muted: #737987;
+      --border: #e9e2d8;
+      --shadow: 0 16px 45px rgba(23,36,60,.09);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 95px;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      background: var(--crema);
-      color: var(--texto);
-      font-family: "Manrope", Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    img { max-width: 100%; display: block; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    button {
-      font: inherit;
-    }
+    button, input, textarea, select { font: inherit; }
+
+    button { cursor: pointer; }
 
     .contenedor {
-      width: min(1160px, 88%);
-      margin: 0 auto;
+      width: min(1160px, 91%);
+      margin: auto;
     }
 
-    .barra {
+    .aviso {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 9px 14px;
+      font-size: .82rem;
+      letter-spacing: .04em;
+    }
+
+    header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 253, 249, .97);
-      border-bottom: 1px solid var(--borde);
+      background: rgba(251,248,242,.96);
       backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .barra-interior {
-      width: min(1280px, 92%);
-      margin: auto;
-      min-height: 88px;
+    .barra {
+      min-height: 83px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 20px;
     }
 
     .marca {
@@ -89,203 +85,203 @@
     }
 
     .marca img {
-      width: 58px;
-      height: 58px;
+      width: 55px;
+      height: 55px;
       object-fit: contain;
       border-radius: 50%;
+      transition: transform .4s ease;
     }
 
-    .marca-texto {
-      color: var(--azul);
-      font-family: "Montserrat", sans-serif;
+    .marca:hover img {
+      transform: rotate(-5deg) scale(1.06);
+    }
+
+    .marca-nombre {
+      font-family: "Playfair Display", serif;
+      color: var(--navy);
+      font-size: 1.06rem;
       font-weight: 700;
-      font-size: 15px;
-      letter-spacing: .5px;
-      line-height: 1.4;
-      white-space: nowrap;
+      line-height: 1.2;
     }
 
-    .marca-texto span {
+    .marca-sub {
       display: block;
-      color: #a7792e;
-      font-size: 10px;
-      letter-spacing: 4px;
-      margin-top: 3px;
+      font-family: "DM Sans", sans-serif;
+      font-size: .72rem;
+      color: var(--muted);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-top: 4px;
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 25px;
-      font-size: 12px;
-      font-weight: 700;
+      gap: 24px;
+      font-size: .9rem;
+      font-weight: 600;
     }
 
-    nav a {
-      transition: color .2s;
-    }
-
-    nav a:hover {
-      color: #a7792e;
-    }
-
-    .nav-boton {
-      padding: 11px 17px;
-      color: white;
-      background: var(--azul);
-      border-radius: 5px;
-    }
-
-    .nav-boton:hover {
-      color: white;
-      background: var(--azul-medio);
-    }
-
-    /* PORTADA */
-
-    .portada {
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse at 83% 38%, #e9d7b5 0, transparent 31%),
-        linear-gradient(115deg, #fffdf9 0%, #f7f1e8 72%, #f1e4ce 100%);
-      border-bottom: 1px solid var(--borde);
-    }
-
-    .portada-interior {
-      min-height: 570px;
-      display: grid;
-      grid-template-columns: 1.05fr .95fr;
-      align-items: center;
-      gap: 48px;
-      padding-top: 60px;
-      padding-bottom: 60px;
-    }
-
-    .sobretitulo {
-      color: #9b702b;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-    }
-
-    h1, h2, h3 {
-      font-family: "Montserrat", sans-serif;
-    }
-
-    h1 {
-      max-width: 620px;
-      color: var(--azul);
-      font-size: clamp(36px, 4.3vw, 55px);
-      line-height: 1.17;
-      letter-spacing: -1.5px;
-      font-weight: 700;
-      margin: 20px 0;
-    }
-
-    h1 span {
-      color: #b88736;
-    }
-
-    .portada-texto {
-      max-width: 530px;
-      color: var(--gris);
-      font-size: 14px;
-      line-height: 1.95;
-    }
-
-    .botones {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 27px;
-    }
+    nav a:hover { color: var(--gold); }
 
     .boton {
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-      min-height: 45px;
-      padding: 12px 20px;
-      border: 1px solid var(--azul);
-      border-radius: 5px;
-      font-size: 12px;
-      font-weight: 800;
-      transition: transform .25s, box-shadow .25s, background .25s;
+      justify-content: center;
+      gap: 8px;
+      border: 0;
+      border-radius: 7px;
+      padding: 12px 19px;
+      font-weight: 700;
+      transition: transform .2s, background .2s, box-shadow .2s;
     }
 
-    .boton:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px #10274718;
-    }
+    .boton:hover { transform: translateY(-2px); }
 
-    .boton-principal {
-      background: var(--azul);
+    .boton-oscuro {
       color: white;
+      background: var(--navy);
     }
 
-    .boton-principal:hover {
-      background: var(--azul-medio);
+    .boton-oscuro:hover { background: var(--navy-light); }
+
+    .boton-dorado {
+      background: var(--gold);
+      color: #201a10;
     }
 
-    .boton-secundario {
-      background: transparent;
-      color: var(--azul);
+    .boton-claro {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--navy);
+    }
+
+    .boton-pequeno { padding: 9px 12px; font-size: .85rem; }
+
+    .portada {
+      padding: 78px 0 86px;
+      background:
+        radial-gradient(ellipse at 90% 20%, #f1e2d0 0, transparent 38%),
+        linear-gradient(120deg, #fbf8f2, #f8f0ec);
+      overflow: hidden;
+    }
+
+    .portada-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      color: #85642c;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      font-size: .76rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      color: var(--navy);
+      line-height: 1.18;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 5vw, 4.6rem);
+      margin: 0 0 22px;
+      letter-spacing: -.035em;
+    }
+
+    h1 span { color: #a67b35; }
+
+    .portada p {
+      max-width: 550px;
+      color: #606779;
+      font-size: 1.08rem;
+      margin-bottom: 27px;
+    }
+
+    .acciones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .beneficios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 17px;
+      margin-top: 30px;
+      color: #646b79;
+      font-size: .83rem;
+    }
+
+    .beneficios span::before {
+      content: "✦";
+      color: var(--gold);
+      margin-right: 6px;
     }
 
     .portada-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: relative;
-      padding: 12px;
-      animation: aparecer .8s ease both;
+      animation: flotar 5s ease-in-out infinite;
     }
 
     .marco-logo {
       position: relative;
-      width: min(100%, 440px);
-      aspect-ratio: 1 / 1;
-      margin: auto;
-      padding: 12px;
-      background: var(--blanco);
-      border: 1px solid var(--dorado);
+      width: min(100%, 410px);
+      aspect-ratio: 1;
+      padding: 15px;
+      border: 1px solid #c49a52;
+      border-radius: 20px;
+      background: rgba(255,255,255,.8);
       box-shadow: 0 22px 60px #10274718;
+      overflow: hidden;
     }
 
     .marco-logo::before {
       content: "";
       position: absolute;
       inset: 7px;
-      border: 1px solid #c99a4566;
+      border: 1px solid #c49a5266;
+      border-radius: 14px;
       pointer-events: none;
+      z-index: 2;
+    }
+
+    .marco-logo::after {
+      content: "";
+      position: absolute;
+      inset: -30% auto -30% -65%;
+      width: 42%;
+      background: linear-gradient(
+        110deg,
+        transparent,
+        rgba(255,255,255,.78),
+        transparent
+      );
+      transform: skewX(-20deg);
+      animation: brilloLogo 5.5s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 3;
     }
 
     .marco-logo img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      border-radius: 12px;
     }
 
-    .sello {
-      position: absolute;
-      right: -5px;
-      bottom: 30px;
-      background: var(--azul);
-      color: white;
-      padding: 13px 17px;
-      box-shadow: 0 9px 28px #10274725;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 1px;
-      animation: flotar 4s ease-in-out infinite;
-    }
-
-    .sello span {
-      display: block;
-      margin-top: 4px;
-      color: var(--dorado-claro);
-      font-size: 9px;
-      font-weight: 500;
-      letter-spacing: .5px;
+    @keyframes brilloLogo {
+      0%, 25% { left: -65%; }
+      65%, 100% { left: 130%; }
     }
 
     @keyframes flotar {
@@ -293,893 +289,881 @@
       50% { transform: translateY(-7px); }
     }
 
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* FRANJA DE ESPECIALIDADES */
-
-    .franja {
-      background: var(--azul);
-      color: #fffdf9;
-    }
-
-    .franja-interior {
-      min-height: 75px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 18px 35px;
-      padding: 18px 0;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-
-    .franja b {
-      color: var(--dorado-claro);
-      font-weight: 500;
-    }
-
-    /* SECCIONES */
-
-    section {
-      padding: 78px 0;
-    }
+    section { padding: 78px 0; }
 
     .encabezado-seccion {
-      max-width: 690px;
-      margin: 0 auto 38px;
       text-align: center;
+      max-width: 680px;
+      margin: 0 auto 38px;
     }
 
     .encabezado-seccion h2 {
-      color: var(--azul);
-      font-size: clamp(26px, 3.2vw, 36px);
-      font-weight: 700;
-      letter-spacing: -.8px;
-      line-height: 1.3;
-      margin: 12px 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 13px;
     }
 
     .encabezado-seccion p {
-      color: var(--gris);
-      font-size: 13px;
-      line-height: 1.9;
+      color: var(--muted);
       margin: 0;
     }
 
-    /* PRODUCTOS */
+    .catalogo { background: white; }
 
     .productos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .producto {
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      overflow: hidden;
+      background: white;
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .producto:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .producto-imagen {
+      height: 235px;
+      background: #f6f0e8;
+      overflow: hidden;
+    }
+
+    .producto-imagen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s;
+    }
+
+    .producto:hover .producto-imagen img { transform: scale(1.04); }
+
+    .producto-contenido { padding: 21px; }
+
+    .producto-categoria {
+      font-size: .73rem;
+      color: #9b773d;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .producto h3 {
+      font-size: 1.35rem;
+      margin: 8px 0;
+    }
+
+    .producto p {
+      font-size: .91rem;
+      color: var(--muted);
+      min-height: 46px;
+      margin: 0 0 17px;
+    }
+
+    .producto-pie {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .precio {
+      color: var(--navy);
+      font-size: 1.18rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .personaliza {
+      background: #f3e9e5;
+    }
+
+    .personaliza-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .personaliza h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 18px;
+    }
+
+    .personaliza p { color: #626878; }
+
+    .personaliza-lista {
+      list-style: none;
+      padding: 0;
+      margin: 22px 0;
+    }
+
+    .personaliza-lista li { margin: 12px 0; }
+
+    .personaliza-lista li::before {
+      content: "✓";
+      color: #9b773d;
+      font-weight: 700;
+      margin-right: 10px;
+    }
+
+    .formulario {
+      background: white;
+      padding: 28px;
+      border: 1px solid #eadbd6;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .formulario h3 { font-size: 1.6rem; margin-top: 0; }
+
+    .campo { margin-bottom: 17px; }
+
+    .campo label {
+      display: block;
+      font-size: .88rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .campo input, .campo select, .campo textarea {
+      width: 100%;
+      border: 1px solid #dedfe5;
+      border-radius: 7px;
+      padding: 12px;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .campo textarea { min-height: 105px; resize: vertical; }
+
+    .nota {
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 10px;
+    }
+
+    .como-funciona { background: var(--cream); }
+
+    .pasos {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
-    .producto {
-      background: var(--blanco);
-      border: 1px solid var(--borde);
-      transition: transform .3s, box-shadow .3s;
-      overflow: hidden;
+    .paso {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 12px;
     }
 
-    .producto:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 16px 35px #10274712;
-    }
-
-    .foto-producto {
-      height: 245px;
-      overflow: hidden;
-      position: relative;
-      background: #e9dfce;
-    }
-
-    .foto-producto img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .55s;
-    }
-
-    .producto:hover .foto-producto img {
-      transform: scale(1.05);
-    }
-
-    .etiqueta-producto {
-      position: absolute;
-      left: 13px;
-      top: 13px;
-      padding: 6px 10px;
-      background: var(--blanco);
-      color: var(--azul);
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: .8px;
-    }
-
-    .producto-contenido {
-      padding: 21px;
-    }
-
-    .producto h3 {
-      color: var(--azul);
-      font-size: 17px;
-      margin: 0 0 9px;
-    }
-
-    .producto p {
-      min-height: 62px;
-      color: var(--gris);
-      font-size: 12px;
-      line-height: 1.8;
-      margin: 0;
-    }
-
-    .precio {
-      margin: 17px 0;
-      color: var(--azul);
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    .precio small {
-      display: block;
-      color: var(--gris);
-      font-size: 10px;
-      font-weight: 400;
-      margin-top: 4px;
-    }
-
-    .agregar {
-      width: 100%;
-      padding: 12px;
-      border: 0;
-      background: var(--dorado);
-      color: var(--azul);
-      cursor: pointer;
-      font-size: 11px;
-      font-weight: 800;
-      transition: background .2s;
-    }
-
-    .agregar:hover {
-      background: var(--dorado-claro);
-    }
-
-    .aviso-fotos {
-      color: var(--gris);
-      text-align: center;
-      font-size: 10px;
-      margin-top: 22px;
-    }
-
-    /* PERSONALIZACIÓN */
-
-    .personalizados {
-      background: var(--azul);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .personalizados-interior {
+    .paso-numero {
+      width: 43px;
+      height: 43px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 55px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--navy);
+      color: white;
+      font-weight: 700;
+      margin-bottom: 17px;
+    }
+
+    .paso h3 { font-size: 1.25rem; margin: 0 0 9px; }
+
+    .paso p { color: var(--muted); font-size: .92rem; margin: 0; }
+
+    .carrito-seccion { background: white; }
+
+    .carrito-caja {
+      max-width: 800px;
+      margin: auto;
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 13px;
+      background: var(--cream);
+    }
+
+    .carrito-lista { display: grid; gap: 13px; }
+
+    .carrito-item {
+      display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      background: white;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
     }
 
-    .personalizados h2 {
-      color: white;
-      font-size: clamp(29px, 3.6vw, 42px);
-      line-height: 1.3;
-      margin: 13px 0;
+    .carrito-item-nombre { font-weight: 700; color: var(--navy); }
+
+    .carrito-item-detalle { color: var(--muted); font-size: .87rem; }
+
+    .carrito-controles {
+      display: flex;
+      align-items: center;
+      gap: 9px;
     }
 
-    .personalizados p {
-      color: #d8e1ec;
-      font-size: 13px;
-      line-height: 1.95;
-    }
-
-    .personalizados .sobretitulo {
-      color: var(--dorado-claro);
-    }
-
-    .personalizados .boton {
-      margin-top: 12px;
-      border-color: var(--dorado);
-      background: var(--dorado);
-      color: var(--azul);
-    }
-
-    .ventajas {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .ventaja {
-      padding: 20px;
-      border: 1px solid #ffffff30;
-      background: #ffffff09;
-      transition: background .25s, transform .25s;
-    }
-
-    .ventaja:hover {
-      background: #ffffff13;
-      transform: translateY(-4px);
-    }
-
-    .ventaja .numero {
-      color: var(--dorado-claro);
-      font-family: "Montserrat", sans-serif;
-      font-size: 12px;
+    .cantidad-btn {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background: white;
+      color: var(--navy);
       font-weight: 700;
     }
 
-    .ventaja h3 {
-      color: white;
-      font-size: 13px;
-      margin: 10px 0 6px;
-    }
-
-    .ventaja p {
-      margin: 0;
-      font-size: 11px;
-      line-height: 1.8;
-    }
-
-    /* SERVICIOS TECNOLÓGICOS */
-
-    .servicios {
-      background: var(--blanco);
-    }
-
-    .lista-servicios {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .servicio {
-      padding: 26px;
-      border: 1px solid var(--borde);
-      background: var(--crema);
-      transition: transform .25s;
-    }
-
-    .servicio:hover {
-      transform: translateY(-5px);
-    }
-
-    .servicio-numero {
-      color: #a7792e;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .servicio h3 {
-      color: var(--azul);
-      font-size: 16px;
-      margin: 13px 0 8px;
-    }
-
-    .servicio p {
-      color: var(--gris);
-      font-size: 12px;
-      line-height: 1.9;
-      margin: 0;
-    }
-
-    /* CARRITO */
-
-    .carrito {
-      max-width: 760px;
-      margin: auto;
-      padding: 28px;
-      border: 1px solid var(--borde);
-      background: var(--blanco);
-    }
-
-    .carrito h3 {
-      margin-top: 0;
-      color: var(--azul);
-      font-size: 19px;
-    }
-
-    #lista-carrito {
-      padding-left: 20px;
-      color: var(--gris);
-      font-size: 12px;
-      line-height: 2.4;
-    }
-
-    .quitar {
-      margin-left: 8px;
-      border: 0;
-      background: transparent;
-      color: #9b702b;
-      cursor: pointer;
-      text-decoration: underline;
-      font-size: 11px;
-    }
-
-    .total {
-      padding-top: 17px;
-      border-top: 1px solid var(--borde);
-      color: var(--azul);
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .acciones-carrito {
+    .carrito-resumen {
       display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 15px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .carrito-acciones {
+      display: flex;
       gap: 12px;
+      flex-wrap: wrap;
       margin-top: 20px;
     }
 
-    .acciones-carrito button,
-    .acciones-carrito a {
-      flex: 1;
-      min-width: 155px;
-      padding: 13px;
-      border: 0;
+    .carrito-vacio {
       text-align: center;
-      cursor: pointer;
-      font-size: 11px;
-      font-weight: 800;
+      color: var(--muted);
+      padding: 22px 0;
     }
 
-    .vaciar {
-      background: var(--dorado-claro);
-      color: var(--azul);
+    .pago-nota {
+      background: #fff7e8;
+      border: 1px solid #ead7af;
+      color: #66502a;
+      border-radius: 8px;
+      padding: 13px;
+      font-size: .86rem;
+      margin-top: 17px;
     }
-
-    .consultar {
-      background: var(--azul);
-      color: white;
-    }
-
-    .nota-carrito {
-      color: var(--gris);
-      font-size: 10px;
-      line-height: 1.8;
-      margin-bottom: 0;
-    }
-
-    /* CONTACTO Y PIE */
 
     .contacto {
       text-align: center;
-      background: linear-gradient(120deg, #f0e1c7, #fffdf9);
+      background: var(--navy);
+      color: white;
     }
 
     .contacto h2 {
-      color: var(--azul);
-      font-size: clamp(27px, 3.5vw, 38px);
-      margin: 13px 0;
+      color: white;
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin: 0 0 15px;
     }
 
     .contacto p {
-      max-width: 650px;
-      margin: 0 auto 24px;
-      color: var(--gris);
-      font-size: 13px;
-      line-height: 1.9;
+      max-width: 620px;
+      margin: 0 auto 25px;
+      color: #d7dce6;
     }
 
     footer {
-      padding: 32px 6%;
-      background: #0b1d34;
-      color: #d9e1eb;
-      text-align: center;
-      font-size: 11px;
-      line-height: 2;
+      background: #111a2b;
+      color: #d4d9e2;
+      padding: 25px 0;
+      font-size: .84rem;
     }
 
-    footer strong {
-      color: var(--dorado-claro);
-      font-family: "Montserrat", sans-serif;
-      letter-spacing: 1px;
+    .footer-contenido {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    footer small {
-      color: #b3c0cf;
+    .contador-carrito {
+      display: inline-grid;
+      place-items: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 5px;
+      border-radius: 50px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: .75rem;
+      margin-left: 3px;
+    }
+
+    .mensaje {
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: .9rem;
     }
 
     @media (max-width: 850px) {
-      .barra-interior {
-        flex-direction: column;
-        padding: 13px 0;
-        gap: 13px;
-      }
-
-      nav {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 13px 18px;
-      }
-
-      .portada-interior {
-        grid-template-columns: 1fr;
-        gap: 25px;
-        text-align: center;
-        padding-top: 48px;
-      }
-
-      .portada-texto {
-        margin: auto;
-      }
-
-      .botones {
-        justify-content: center;
-      }
-
-      .portada-visual {
-        width: min(100%, 470px);
-        margin: auto;
-      }
-
-      .marco-logo {
-        width: min(100%, 360px);
-      }
-
-      .sello {
-        right: 0;
-      }
-
-      .personalizados-interior {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
+      .portada-grid, .personaliza-grid { grid-template-columns: 1fr; }
+      .portada-grid { gap: 38px; }
+      .portada-visual { max-width: 390px; margin: auto; }
+      .productos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .pasos { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
     }
 
     @media (max-width: 600px) {
-      .contenedor {
-        width: 90%;
-      }
-
-      section {
-        padding: 57px 0;
-      }
-
-      .marca img {
-        width: 49px;
-        height: 49px;
-      }
-
-      .marca-texto {
-        font-size: 13px;
-      }
-
-      nav {
-        font-size: 11px;
-      }
-
-      .portada-interior {
-        min-height: auto;
-        padding-top: 45px;
-        padding-bottom: 45px;
-      }
-
-      h1 {
-        font-size: 37px;
-        letter-spacing: -.8px;
-      }
-
-      .franja-interior {
-        gap: 10px 16px;
-        font-size: 9px;
-      }
-
-      .productos,
-      .lista-servicios {
-        grid-template-columns: 1fr;
-        max-width: 390px;
-        margin-left: auto;
-        margin-right: auto;
-      }
-
-      .foto-producto {
-        height: 245px;
-      }
-
-      .ventajas {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .carrito {
-        padding: 20px;
-      }
+      .barra { flex-wrap: wrap; padding: 13px 0; }
+      .marca img { width: 45px; height: 45px; }
+      .marca-nombre { font-size: .95rem; }
+      nav { width: 100%; justify-content: space-between; font-size: .82rem; }
+      nav a { padding: 5px 0; }
+      .portada { padding: 52px 0; }
+      section { padding: 57px 0; }
+      .productos { grid-template-columns: 1fr; }
+      .producto-imagen { height: 250px; }
+      .formulario, .carrito-caja { padding: 20px; }
+      .carrito-item { align-items: flex-start; flex-direction: column; }
+      .producto-pie { align-items: flex-start; }
+      .footer-contenido { flex-direction: column; text-align: center; }
     }
 
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
-        animation-duration: .01ms !important;
-        transition-duration: .01ms !important;
         scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <header class="barra">
-    <div class="barra-interior">
-      <a class="marca" href="#inicio">
-        <img src="logo.jpeg.jpg" alt="Logo oficial de AD NovaTech 3D Studio">
-        <div class="marca-texto">
-          AD NOVATECH
-          <span>3D STUDIO</span>
-        </div>
+  <div class="aviso">
+    ✨ Creaciones en impresión 3D hechas para ti ✨
+  </div>
+
+  <header>
+    <div class="contenedor barra">
+      <a class="marca" href="#inicio" aria-label="AD NovaTech 3D Studio, inicio">
+        <img src="logo.jpeg.jpg" alt="Logo AD NovaTech 3D Studio">
+        <span class="marca-nombre">
+          AD NovaTech
+          <span class="marca-sub">3D Studio</span>
+        </span>
       </a>
 
       <nav aria-label="Navegación principal">
-        <a href="#inicio">Inicio</a>
         <a href="#productos">Productos</a>
-        <a href="#personalizados">Personalización</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#carrito" class="nav-boton">Carrito (<span id="contador">0</span>)</a>
+        <a href="#personaliza">Personaliza</a>
+        <a href="#como-funciona">Cómo comprar</a>
+        <a href="#carrito">Carrito <span class="contador-carrito" id="contador">0</span></a>
       </nav>
     </div>
   </header>
 
   <main>
     <section class="portada" id="inicio">
-      <div class="contenedor portada-interior">
+      <div class="contenedor portada-grid">
         <div>
-          <div class="sobretitulo">Diseño · Impresión · Personalización</div>
-
-          <h1>Diseño y tecnología para <span>nuevas ideas.</span></h1>
-
-          <p class="portada-texto">
-            En AD NovaTech 3D Studio desarrollamos una propuesta que integra
-            impresión 3D, personalización de productos y soluciones tecnológicas.
-            Nuestro propósito es transformar conceptos en objetos funcionales
-            y decorativos, con atención a los detalles y a las necesidades de cada cliente.
+          <span class="etiqueta">Diseñado con creatividad</span>
+          <h1>Pequeñas ideas.<br><span>Grandes creaciones.</span></h1>
+          <p>
+            Descubre el mundo de la impresión 3D con productos originales,
+            detalles personalizados y regalos creados para hacer especial
+            cada ocasión.
           </p>
-
-          <div class="botones">
-            <a class="boton boton-principal" href="#productos">Explorar productos</a>
-            <a class="boton boton-secundario" href="#personalizados">Solicitar personalización</a>
+          <div class="acciones">
+            <a class="boton boton-oscuro" href="#productos">Explorar productos</a>
+            <a class="boton boton-claro" href="#personaliza">Crear mi diseño</a>
+          </div>
+          <div class="beneficios">
+            <span>Diseños creativos</span>
+            <span>Personalización</span>
+            <span>Hecho con dedicación</span>
           </div>
         </div>
 
         <div class="portada-visual">
           <div class="marco-logo">
-            <img src="logo.jpeg.jpg" alt="Identidad visual oficial de AD NovaTech 3D Studio">
-          </div>
-          <div class="sello">
-            AD NOVATECH 3D STUDIO
-            <span>DISEÑO CON PROPÓSITO</span>
+            <img src="logo.jpeg.jpg" alt="AD NovaTech 3D Studio">
           </div>
         </div>
       </div>
     </section>
 
-    <div class="franja">
-      <div class="contenedor franja-interior">
-        <span><b>✦</b> IMPRESIÓN 3D</span>
-        <span><b>✦</b> DISEÑO PERSONALIZADO</span>
-        <span><b>✦</b> ACCESORIOS Y DECORACIÓN</span>
-        <span><b>✦</b> SOPORTE TECNOLÓGICO</span>
-      </div>
-    </div>
-
-    <section id="productos">
+    <section class="catalogo" id="productos">
       <div class="contenedor">
         <div class="encabezado-seccion">
-          <div class="sobretitulo">Catálogo inicial</div>
-          <h2>Productos y creaciones</h2>
+          <span class="etiqueta">Nuestro catálogo</span>
+          <h2>Creaciones en 3D</h2>
           <p>
-            Una selección inicial de ideas para regalos, decoración y accesorios.
-            Los diseños, materiales, colores y dimensiones podrán definirse según
-            la disponibilidad y las características de cada proyecto.
+            Explora ideas para regalar, decorar y personalizar.
+            Los precios de ejemplo se pueden ajustar cuando definas tu catálogo.
           </p>
         </div>
 
         <div class="productos">
           <article class="producto">
-            <div class="foto-producto">
-              <img
-                src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=85"
-                alt="Fotografía ilustrativa de productos y accesorios"
-                loading="lazy">
-              <span class="etiqueta-producto">ACCESORIOS</span>
+            <div class="producto-imagen">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=850&q=85"
+                   alt="Objeto decorativo de diseño abstracto"
+                   loading="lazy">
             </div>
             <div class="producto-contenido">
+              <span class="producto-categoria">Decoración</span>
+              <h3>Figura decorativa 3D</h3>
+              <p>Una pieza original para darle personalidad a tus espacios.</p>
+              <div class="producto-pie">
+                <span class="precio">$4.990</span>
+                <button class="boton boton-oscuro boton-pequeno"
+                  onclick="agregarProducto('figura','Figura decorativa 3D',4990)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-imagen">
+              <img src="https://images.unsplash.com/photo-1632516643720-e7f5d7d6ecc9?auto=format&fit=crop&w=850&q=85"
+                   alt="Accesorios y objetos pequeños de diseño"
+                   loading="lazy">
+            </div>
+            <div class="producto-contenido">
+              <span class="producto-categoria">Accesorios</span>
               <h3>Llaveros personalizados</h3>
-              <p>
-                Accesorios con nombres, iniciales o diseños especiales
-                para regalos y recuerdos.
-              </p>
-              <div class="precio">$2.000 CLP<small>Valor referencial, por confirmar</small></div>
-              <button class="agregar" data-nombre="Llavero personalizado" data-precio="2000">
-                Agregar al carrito
-              </button>
+              <p>Un detalle especial con iniciales, nombres o formas a elección.</p>
+              <div class="producto-pie">
+                <span class="precio">$1.990</span>
+                <button class="boton boton-oscuro boton-pequeno"
+                  onclick="agregarProducto('llavero','Llavero personalizado',1990)">
+                  Agregar +
+                </button>
+              </div>
             </div>
           </article>
 
           <article class="producto">
-            <div class="foto-producto">
-              <img
-                src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=900&q=85"
-                alt="Fotografía ilustrativa de decoración para espacios"
-                loading="lazy">
-              <span class="etiqueta-producto">DECORACIÓN</span>
+            <div class="producto-imagen">
+              <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=850&q=85"
+                   alt="Decoración para el hogar"
+                   loading="lazy">
             </div>
             <div class="producto-contenido">
-              <h3>Objetos decorativos</h3>
-              <p>
-                Piezas para escritorios, estanterías y espacios personales,
-                con distintas opciones de diseño.
-              </p>
-              <div class="precio">$5.000 CLP<small>Valor referencial, por confirmar</small></div>
-              <button class="agregar" data-nombre="Objeto decorativo" data-precio="5000">
-                Agregar al carrito
-              </button>
+              <span class="producto-categoria">Hogar</span>
+              <h3>Adorno personalizado</h3>
+              <p>Una idea para cumpleaños, celebraciones y rincones especiales.</p>
+              <div class="producto-pie">
+                <span class="precio">$3.990</span>
+                <button class="boton boton-oscuro boton-pequeno"
+                  onclick="agregarProducto('adorno','Adorno personalizado',3990)">
+                  Agregar +
+                </button>
+              </div>
             </div>
           </article>
 
           <article class="producto">
-            <div class="foto-producto">
-              <img
-                src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=900&q=85"
-                alt="Fotografía ilustrativa de artículos para regalo"
-                loading="lazy">
-              <span class="etiqueta-producto">REGALOS</span>
+            <div class="producto-imagen">
+              <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=850&q=85"
+                   alt="Accesorios de uso cotidiano"
+                   loading="lazy">
             </div>
             <div class="producto-contenido">
-              <h3>Regalos personalizados</h3>
-              <p>
-                Propuestas creativas para ocasiones especiales,
-                sujetas a evaluación y posibilidades de fabricación.
-              </p>
-              <div class="precio">$4.000 CLP<small>Valor referencial, por confirmar</small></div>
-              <button class="agregar" data-nombre="Regalo personalizado" data-precio="4000">
-                Agregar al carrito
-              </button>
+              <span class="producto-categoria">Personalizados</span>
+              <h3>Nombre en 3D</h3>
+              <p>Un nombre decorativo para escritorios, regalos o habitaciones.</p>
+              <div class="producto-pie">
+                <span class="precio">$3.490</span>
+                <button class="boton boton-oscuro boton-pequeno"
+                  onclick="agregarProducto('nombre','Nombre decorativo 3D',3490)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-imagen">
+              <img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?auto=format&fit=crop&w=850&q=85"
+                   alt="Objetos decorativos para regalo"
+                   loading="lazy">
+            </div>
+            <div class="producto-contenido">
+              <span class="producto-categoria">Regalos</span>
+              <h3>Detalle para regalar</h3>
+              <p>Un pequeño regalo que puedes adaptar a tu estilo y ocasión.</p>
+              <div class="producto-pie">
+                <span class="precio">$2.990</span>
+                <button class="boton boton-oscuro boton-pequeno"
+                  onclick="agregarProducto('regalo','Detalle para regalar',2990)">
+                  Agregar +
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="producto">
+            <div class="producto-imagen">
+              <img src="https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?auto=format&fit=crop&w=850&q=85"
+                   alt="Ideas creativas de decoración"
+                   loading="lazy">
+            </div>
+            <div class="producto-contenido">
+              <span class="producto-categoria">Diseño a pedido</span>
+              <h3>Tu idea en 3D</h3>
+              <p>Cuéntanos tu idea para revisar si podemos fabricarla.</p>
+              <div class="producto-pie">
+                <span class="precio">A cotizar</span>
+                <a class="boton boton-oscuro boton-pequeno" href="#personaliza">Consultar</a>
+              </div>
             </div>
           </article>
         </div>
 
-        <p class="aviso-fotos">
-          Las fotografías son ilustrativas y no representan necesariamente productos fabricados por AD NovaTech.
-          Los valores son ejemplos y deben confirmarse antes de publicar el catálogo comercial.
+        <p class="nota">
+          Las imágenes son ilustrativas y los precios son de ejemplo.
+          Actualízalos según el costo real de tus materiales, tiempo de impresión y terminaciones.
         </p>
       </div>
     </section>
 
-    <section class="personalizados" id="personalizados">
-      <div class="contenedor personalizados-interior">
+    <section class="personaliza" id="personaliza">
+      <div class="contenedor personaliza-grid">
         <div>
-          <div class="sobretitulo">Diseños personalizados</div>
-          <h2>Una propuesta adaptada a cada proyecto.</h2>
+          <span class="etiqueta">Tu imaginación, en 3D</span>
+          <h2>¿Tienes una idea especial?</h2>
           <p>
-            Evaluamos ideas para crear productos personalizados según el uso,
-            las dimensiones, el diseño y los materiales disponibles. Cada
-            solicitud puede revisarse para determinar su factibilidad y cotización.
+            Podemos revisar propuestas para nombres, llaveros, adornos,
+            imanes y otros objetos personalizados.
           </p>
-          <a class="boton" href="#contacto">Consultar por un diseño</a>
-        </div>
-
-        <div class="ventajas">
-          <article class="ventaja">
-            <div class="numero">01 / DISEÑO</div>
-            <h3>Propuesta personalizada</h3>
-            <p>Definición de la idea y sus características principales.</p>
-          </article>
-          <article class="ventaja">
-            <div class="numero">02 / DETALLE</div>
-            <h3>Opciones de acabado</h3>
-            <p>Evaluación de colores, formas y materiales disponibles.</p>
-          </article>
-          <article class="ventaja">
-            <div class="numero">03 / FABRICACIÓN</div>
-            <h3>Impresión 3D</h3>
-            <p>Revisión de la factibilidad de fabricación de cada diseño.</p>
-          </article>
-          <article class="ventaja">
-            <div class="numero">04 / COTIZACIÓN</div>
-            <h3>Atención directa</h3>
-            <p>Consulta de precio y plazo antes de confirmar el pedido.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="servicios" id="servicios">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <div class="sobretitulo">Área tecnológica</div>
-          <h2>Soluciones para tus equipos</h2>
-          <p>
-            Además de la impresión 3D, AD NovaTech contempla servicios
-            tecnológicos orientados al mantenimiento, actualización y
-            funcionamiento de computadores.
-          </p>
-        </div>
-
-        <div class="lista-servicios">
-          <article class="servicio">
-            <div class="servicio-numero">SERVICIO 01</div>
-            <h3>Mantenimiento de computadores</h3>
-            <p>
-              Orientación y servicios de limpieza interna y mantenimiento
-              preventivo, según las características del equipo.
-            </p>
-          </article>
-
-          <article class="servicio">
-            <div class="servicio-numero">SERVICIO 02</div>
-            <h3>Actualización de hardware</h3>
-            <p>
-              Asesoría para ampliar memoria RAM, actualizar almacenamiento
-              SSD y revisar compatibilidad de componentes.
-            </p>
-          </article>
-
-          <article class="servicio">
-            <div class="servicio-numero">SERVICIO 03</div>
-            <h3>Instalación y configuración</h3>
-            <p>
-              Orientación para la instalación y configuración de sistemas
-              operativos y programas compatibles con el equipo.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="carrito">
-      <div class="contenedor">
-        <div class="encabezado-seccion">
-          <div class="sobretitulo">Tu selección</div>
-          <h2>Resumen del pedido</h2>
-          <p>
-            Añade productos para revisar el total referencial de tu selección.
-          </p>
-        </div>
-
-        <div class="carrito">
-          <h3>Productos seleccionados</h3>
-          <ul id="lista-carrito">
-            <li>Tu carrito está vacío.</li>
+          <ul class="personaliza-lista">
+            <li>Elige el tipo de producto.</li>
+            <li>Cuéntanos qué quieres crear.</li>
+            <li>Revisaremos la idea y su precio antes de confirmar.</li>
           </ul>
-          <div class="total">
-            Total: <span id="total">$0 CLP</span>
+        </div>
+
+        <form class="formulario" id="formulario-personalizado">
+          <h3>Solicita una cotización</h3>
+
+          <div class="campo">
+            <label for="nombre-cliente">Tu nombre</label>
+            <input id="nombre-cliente" name="nombre" required
+                   placeholder="¿Cómo te llamas?">
           </div>
-          <div class="acciones-carrito">
-            <button class="vaciar" id="vaciar" type="button">Vaciar carrito</button>
-            <a class="consultar" id="consultar" href="#contacto">Consultar pedido</a>
+
+          <div class="campo">
+            <label for="tipo-producto">¿Qué quieres crear?</label>
+            <select id="tipo-producto" name="producto" required>
+              <option value="">Selecciona una opción</option>
+              <option>Llaveros personalizados</option>
+              <option>Imanes para refrigerador</option>
+              <option>Nombres decorativos</option>
+              <option>Figuras y adornos</option>
+              <option>Regalos personalizados</option>
+              <option>Otra idea en 3D</option>
+            </select>
           </div>
-          <p class="nota-carrito">
-            El carrito es una demostración inicial. No procesa pagos ni confirma pedidos.
-            Los precios y la disponibilidad deben validarse directamente con el emprendimiento.
+
+          <div class="campo">
+            <label for="detalles">Cuéntanos tu idea</label>
+            <textarea id="detalles" name="detalles" required
+              placeholder="Colores, medidas, cantidad y otros detalles..."></textarea>
+          </div>
+
+          <button type="submit" class="boton boton-oscuro">
+            Preparar consulta
+          </button>
+
+          <p class="nota">
+            Se abrirá tu aplicación de correo para que revises y envíes la consulta.
+            No se envía información automáticamente desde esta web.
           </p>
+          <div id="mensaje-formulario" class="mensaje" role="status"></div>
+        </form>
+      </div>
+    </section>
+
+    <section class="como-funciona" id="como-funciona">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="etiqueta">Una compra sencilla</span>
+          <h2>¿Cómo funciona?</h2>
+          <p>Queremos que elegir tu próxima creación sea simple y claro.</p>
+        </div>
+
+        <div class="pasos">
+          <article class="paso">
+            <div class="paso-numero">1</div>
+            <h3>Elige tu producto</h3>
+            <p>Explora el catálogo y agrega al carrito los artículos que te interesen.</p>
+          </article>
+          <article class="paso">
+            <div class="paso-numero">2</div>
+            <h3>Revisa tu pedido</h3>
+            <p>Comprueba cantidades y subtotal antes de avanzar con la compra.</p>
+          </article>
+          <article class="paso">
+            <div class="paso-numero">3</div>
+            <h3>Confirma los detalles</h3>
+            <p>Los productos personalizados y sus tiempos se deben confirmar antes de fabricar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="carrito-seccion" id="carrito">
+      <div class="contenedor">
+        <div class="encabezado-seccion">
+          <span class="etiqueta">Tu selección</span>
+          <h2>Tu carrito</h2>
+          <p>Revisa los productos que agregaste.</p>
+        </div>
+
+        <div class="carrito-caja">
+          <div id="carrito-lista" class="carrito-lista" aria-live="polite"></div>
+
+          <div class="carrito-resumen">
+            <span>Subtotal</span>
+            <span id="carrito-total">$0</span>
+          </div>
+
+          <div class="carrito-acciones">
+            <button class="boton boton-claro" onclick="vaciarCarrito()">
+              Vaciar carrito
+            </button>
+            <button class="boton boton-oscuro" onclick="prepararPedido()">
+              Preparar pedido
+            </button>
+          </div>
+
+          <div class="pago-nota">
+            <strong>Pagos online próximamente.</strong>
+            Este carrito todavía no procesa pagos reales ni reserva productos.
+            Webpay Plus se habilitará después de configurar y validar la integración.
+          </div>
+
+          <div id="mensaje-carrito" class="mensaje" role="status"></div>
         </div>
       </div>
     </section>
 
     <section class="contacto" id="contacto">
       <div class="contenedor">
-        <div class="sobretitulo">Contacto</div>
-        <h2>Conversemos sobre tu proyecto</h2>
+        <span class="etiqueta">AD NovaTech 3D Studio</span>
+        <h2>Imaginemos algo único</h2>
         <p>
-          Para solicitar información sobre impresión 3D, productos personalizados
-          o servicios tecnológicos, prepara tu consulta y contáctanos por los
-          canales oficiales del emprendimiento.
+          Cada idea puede convertirse en una creación especial.
+          Explora el catálogo o prepara una consulta para tu próximo diseño.
         </p>
-        <a class="boton boton-principal" href="#carrito">Revisar mi selección</a>
+        <a class="boton boton-dorado" href="#productos">Descubrir productos</a>
       </div>
     </section>
   </main>
 
   <footer>
-    <strong>AD NOVATECH 3D STUDIO</strong><br>
-    Diseño · Impresión · Personalización · Tecnología<br>
-    <small>© 2026 AD NovaTech 3D Studio. Todos los derechos reservados.</small>
+    <div class="contenedor footer-contenido">
+      <span>© <span id="anio"></span> AD NovaTech 3D Studio</span>
+      <span>Impresión 3D · Diseños personalizados · Creatividad</span>
+    </div>
   </footer>
 
   <script>
-    // Para activar WhatsApp, escribe el número con código de país,
-    // solo números. Ejemplo de formato chileno: 56912345678
-    const WHATSAPP = "";
-
     const carrito = [];
 
-    function formatoCLP(valor) {
-      return valor.toLocaleString("es-CL", {
+    const formatoCLP = (monto) =>
+      new Intl.NumberFormat("es-CL", {
         style: "currency",
         currency: "CLP",
         maximumFractionDigits: 0
-      });
+      }).format(monto);
+
+    function agregarProducto(id, nombre, precio) {
+      const existente = carrito.find(item => item.id === id);
+
+      if (existente) {
+        existente.cantidad += 1;
+      } else {
+        carrito.push({ id, nombre, precio, cantidad: 1 });
+      }
+
+      mostrarCarrito();
+
+      const mensaje = document.getElementById("mensaje-carrito");
+      mensaje.textContent = nombre + " se agregó al carrito.";
+
+      document.getElementById("contador").textContent =
+        carrito.reduce((total, item) => total + item.cantidad, 0);
     }
 
-    function actualizarCarrito() {
-      const lista = document.getElementById("lista-carrito");
-      const total = carrito.reduce((suma, producto) => suma + producto.precio, 0);
+    function cambiarCantidad(id, cambio) {
+      const item = carrito.find(producto => producto.id === id);
+      if (!item) return;
 
-      document.getElementById("contador").textContent = carrito.length;
-      document.getElementById("total").textContent = formatoCLP(total);
+      item.cantidad += cambio;
+
+      if (item.cantidad <= 0) {
+        const indice = carrito.findIndex(producto => producto.id === id);
+        carrito.splice(indice, 1);
+      }
+
+      mostrarCarrito();
+    }
+
+    function vaciarCarrito() {
+      carrito.length = 0;
+      mostrarCarrito();
+      document.getElementById("mensaje-carrito").textContent =
+        "Tu carrito está vacío.";
+    }
+
+    function mostrarCarrito() {
+      const lista = document.getElementById("carrito-lista");
+      const totalElemento = document.getElementById("carrito-total");
+      const contador = document.getElementById("contador");
+
       lista.replaceChildren();
 
+      const cantidadTotal = carrito.reduce(
+        (suma, item) => suma + item.cantidad, 0
+      );
+
+      contador.textContent = cantidadTotal;
+
       if (carrito.length === 0) {
-        const item = document.createElement("li");
-        item.textContent = "Tu carrito está vacío.";
-        lista.appendChild(item);
-      } else {
-        carrito.forEach((producto, indice) => {
-          const item = document.createElement("li");
-          item.appendChild(document.createTextNode(
-            producto.nombre + " — " + formatoCLP(producto.precio) + " "
-          ));
-
-          const quitar = document.createElement("button");
-          quitar.className = "quitar";
-          quitar.type = "button";
-          quitar.textContent = "Quitar";
-          quitar.addEventListener("click", () => {
-            carrito.splice(indice, 1);
-            actualizarCarrito();
-          });
-
-          item.appendChild(quitar);
-          lista.appendChild(item);
-        });
+        const vacio = document.createElement("div");
+        vacio.className = "carrito-vacio";
+        vacio.textContent = "Todavía no agregas productos a tu carrito.";
+        lista.appendChild(vacio);
+        totalElemento.textContent = formatoCLP(0);
+        return;
       }
 
-      const consultar = document.getElementById("consultar");
+      let total = 0;
 
-      if (WHATSAPP && carrito.length > 0) {
-        const mensaje =
-          "Hola, AD NovaTech 3D Studio. Quisiera consultar por este pedido:\n" +
-          carrito.map(p => "- " + p.nombre + ": " + formatoCLP(p.precio)).join("\n") +
-          "\nTotal referencial: " + formatoCLP(total) +
-          "\n¿Podrían confirmarme disponibilidad y precio?";
+      carrito.forEach(item => {
+        total += item.precio * item.cantidad;
 
-        consultar.href =
-          "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensaje);
-        consultar.target = "_blank";
-        consultar.rel = "noopener noreferrer";
-        consultar.onclick = null;
-      } else {
-        consultar.href = "#contacto";
-        consultar.removeAttribute("target");
-        consultar.onclick = event => {
-          event.preventDefault();
-          alert(
-            WHATSAPP
-              ? "Agrega un producto antes de consultar."
-              : "El contacto por WhatsApp se activará cuando configures tu número en el código."
-          );
-        };
-      }
+        const fila = document.createElement("div");
+        fila.className = "carrito-item";
+
+        const info = document.createElement("div");
+
+        const nombre = document.createElement("div");
+        nombre.className = "carrito-item-nombre";
+        nombre.textContent = item.nombre;
+
+        const detalle = document.createElement("div");
+        detalle.className = "carrito-item-detalle";
+        detalle.textContent =
+          formatoCLP(item.precio) + " por unidad";
+
+        info.append(nombre, detalle);
+
+        const controles = document.createElement("div");
+        controles.className = "carrito-controles";
+
+        const menos = document.createElement("button");
+        menos.className = "cantidad-btn";
+        menos.textContent = "−";
+        menos.setAttribute("aria-label", "Quitar una unidad de " + item.nombre);
+        menos.addEventListener("click", () => cambiarCantidad(item.id, -1));
+
+        const cantidad = document.createElement("span");
+        cantidad.textContent = item.cantidad;
+
+        const mas = document.createElement("button");
+        mas.className = "cantidad-btn";
+        mas.textContent = "+";
+        mas.setAttribute("aria-label", "Agregar una unidad de " + item.nombre);
+        mas.addEventListener("click", () => cambiarCantidad(item.id, 1));
+
+        const subtotal = document.createElement("strong");
+        subtotal.textContent = formatoCLP(item.precio * item.cantidad);
+
+        controles.append(menos, cantidad, mas, subtotal);
+        fila.append(info, controles);
+        lista.appendChild(fila);
+      });
+
+      totalElemento.textContent = formatoCLP(total);
     }
 
-    document.querySelectorAll(".agregar").forEach(boton => {
-      boton.addEventListener("click", () => {
-        carrito.push({
-          nombre: boton.dataset.nombre,
-          precio: Number(boton.dataset.precio)
-        });
-        actualizarCarrito();
+    function prepararPedido() {
+      const mensaje = document.getElementById("mensaje-carrito");
+
+      if (carrito.length === 0) {
+        mensaje.textContent = "Agrega al menos un producto antes de preparar tu pedido.";
+        return;
+      }
+
+      const lineas = carrito.map(item =>
+        `${item.nombre} x ${item.cantidad}: ${formatoCLP(item.precio * item.cantidad)}`
+      );
+
+      const total = carrito.reduce(
+        (suma, item) => suma + item.precio * item.cantidad, 0
+      );
+
+      const cuerpo = [
+        "Hola, quiero consultar por este pedido de AD NovaTech 3D Studio:",
+        "",
+        ...lineas,
+        "",
+        "Subtotal estimado: " + formatoCLP(total),
+        "",
+        "Quisiera confirmar disponibilidad, personalización, despacho y pago."
+      ].join("\n");
+
+      const asunto = encodeURIComponent("Consulta de pedido - AD NovaTech 3D Studio");
+      const contenido = encodeURIComponent(cuerpo);
+
+      mensaje.textContent =
+        "Prepararemos una consulta por correo. El pedido no está pagado ni confirmado.";
+
+      window.location.href =
+        "mailto:?subject=" + asunto + "&body=" + contenido;
+    }
+
+    document.getElementById("formulario-personalizado")
+      .addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre-cliente").value.trim();
+        const producto = document.getElementById("tipo-producto").value;
+        const detalles = document.getElementById("detalles").value.trim();
+
+        const asunto = encodeURIComponent(
+          "Cotización personalizada - AD NovaTech 3D Studio"
+        );
+
+        const cuerpo = encodeURIComponent(
+          "Hola, soy " + nombre + ".\n\n" +
+          "Quiero consultar por: " + producto + ".\n\n" +
+          "Detalles de mi idea:\n" + detalles + "\n\n" +
+          "Quedo pendiente de la cotización. Gracias."
+        );
+
+        document.getElementById("mensaje-formulario").textContent =
+          "Abriendo tu aplicación de correo para que revises y envíes la consulta.";
+
+        window.location.href =
+          "mailto:?subject=" + asunto + "&body=" + cuerpo;
       });
-    });
 
-    document.getElementById("vaciar").addEventListener("click", () => {
-      carrito.length = 0;
-      actualizarCarrito();
-    });
+    document.getElementById("anio").textContent =
+      new Date().getFullYear();
 
-    actualizarCarrito();
+    mostrarCarrito();
   </script>
 </body>
 </html>
